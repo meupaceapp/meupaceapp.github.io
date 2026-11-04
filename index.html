@@ -313,6 +313,34 @@ dialog.rp{width:100vw;max-width:none;height:100dvh;max-height:100dvh;border:0;bo
 .cov input[type=range]{width:100%;accent-color:var(--neon)}
 .cov .btn.sm{margin-top:6px}
 dialog#smDlg .dbody{padding-top:4px}
+.nav-av{position:relative;flex:none;display:inline-flex}
+.nic{position:absolute;right:-5px;bottom:-5px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#000;border:2px solid #1a1a1a;font-weight:900;line-height:1}
+.nthumb{width:48px;height:48px;border-radius:10px;object-fit:cover;flex:none;overflow:hidden;display:grid;place-items:center;background:#0c0c0c;border:1px solid var(--line)}
+.nthumb svg{width:100%;height:100%;border:0!important;border-radius:0!important}
+.nthumb.ph{color:var(--neon);font-size:18px}
+.nt.new{box-shadow:inset 3px 0 0 var(--c1,var(--neon))}
+.nhero{background:linear-gradient(135deg,rgba(57,255,20,.2),rgba(0,255,163,.06));border:1px solid rgba(57,255,20,.45);border-radius:18px;padding:16px;margin:6px 0 4px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.nhero::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(rgba(57,255,20,.35),transparent 70%)}
+.nhero b{font-family:var(--disp);font-size:32px;font-weight:900;display:block;line-height:1;text-transform:uppercase}
+.nhero span{font-size:13px;color:var(--mute)}
+.nach{background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-weight:700;font-size:14px;color:var(--warn);text-align:left;position:relative;z-index:1}
+button.nach{cursor:pointer}
+.chatnote{padding:10px 14px;border-top:1px solid var(--line);background:#181818;font-size:14px;color:var(--mute);text-align:center}
+.chatnote b{color:var(--ink)}
+.reqbox{background:var(--s1);border:1px solid rgba(255,225,77,.45);border-radius:16px;padding:14px;margin:6px 0 12px;text-align:center}
+.reqbox p{margin:0 0 10px;font-size:15px}
+.reqacts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.reqacts button{border-radius:999px;padding:9px 16px;font-weight:800;cursor:pointer;border:1px solid var(--line);background:var(--s2);color:var(--ink)}
+.reqacts .ok{background:var(--neon);color:#000;border-color:var(--neon)}
+.reqacts .danger{color:#ff3b5c;border-color:rgba(255,59,92,.5)}
+.thread .tag{font-size:12px;color:var(--warn);font-weight:700}
+.safety{display:flex;gap:16px;justify-content:center;margin:18px 0 6px}
+.safety button{background:none;border:0;color:var(--mute);font-weight:600;cursor:pointer;font-size:14px;text-decoration:underline}
+.blockednote{background:rgba(255,59,92,.1);border:1px solid rgba(255,59,92,.4);border-radius:12px;padding:10px 12px;margin:10px 0;font-size:14px}
+.rep-opt{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.rep-opt input{width:20px;height:20px;accent-color:var(--neon)}
+.repcard{background:var(--s1);border:1px solid rgba(255,59,92,.4);border-radius:14px;padding:12px;margin-bottom:8px;font-size:14px}
+.repcard .reqacts{justify-content:flex-start;margin-top:8px}
 /* hero corredor */
 .hero{position:relative;margin:16px 0 4px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(120% 90% at 85% 10%,rgba(57,255,20,.18),transparent 60%),#0f0f0f;min-height:210px;padding:22px 20px}
 .hero h2{margin:0;font-size:52px;max-width:60%}
@@ -433,7 +461,10 @@ label.f input,label.f select,label.f textarea{background:rgba(0,0,0,.35);border:
 .lvl{display:inline-block;font-size:11px;font-weight:700;color:var(--neon);border:1px solid rgba(57,255,20,.4);border-radius:5px;padding:0 5px;margin-left:4px;vertical-align:2px}
 
 /* perfil */
-.pcover{height:120px;border-radius:18px;overflow:hidden;margin-top:16px;border:1px solid var(--line)}
+.pcover{height:150px;border-radius:18px;overflow:hidden;margin-top:16px;border:1px solid var(--line);position:relative}
+.pcover img{width:100%;height:100%;object-fit:cover;display:block}
+.covbtn{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:13px;cursor:pointer}
+.pcover .covbtn svg{width:16px;height:16px;color:var(--neon);flex:none}
 .pcover svg{width:100%;height:100%;display:block}
 .phead{display:flex;align-items:flex-end;gap:14px;margin-top:-44px;padding:0 14px}
 .phead .av{width:92px;height:92px;font-size:42px;border:3px solid var(--neon);box-shadow:0 0 22px rgba(57,255,20,.4);background:#0b0b0b}
@@ -506,6 +537,7 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
       <p class="sub" id="onbSub">Coloque sua foto e seu apelido para a galera te encontrar e te seguir.</p>
       <div class="card">
         <div class="avpick"><div class="av" id="fAv">+</div><button class="photo-btn" id="fPhotoBtn" type="button">Escolher foto</button></div>
+        <button class="photo-btn" id="fCovBtn" type="button" data-covedit="1" style="margin-top:10px" hidden>Trocar foto de capa</button>
         <label class="f">Apelido<input id="fNick" maxlength="30" placeholder="Ex.: Lia do Longão"></label>
         <div class="row" style="margin-top:10px">
           <label class="f">Cidade<select id="fCity"></select></label>
@@ -577,7 +609,7 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <!-- AVISOS -->
   <section class="view" id="v-alerts" hidden>
     <h2>Seus avisos</h2>
-    <p class="sub">Quem te seguiu, curtiu e comentou, mais a contagem das suas provas.</p>
+    <p class="sub">Tudo o que rolou com você no MEU PACE.</p>
     <div id="alertList"></div>
   </section>
 
@@ -626,8 +658,9 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <!-- MENSAGENS -->
   <section class="view" id="v-msgs" hidden>
     <h2>Mensagens</h2>
-    <p class="sub">Converse com qualquer corredor do app. Só você e a outra pessoa veem a conversa.</p>
-    <button class="btn ghost" id="newMsg" style="margin-bottom:14px">Nova mensagem</button>
+    <p class="sub">Amigos (quem se segue de volta) conversam direto. Os outros chegam como solicitação, e você decide se aceita.</p>
+    <div class="seg" id="msgTabs" role="group" aria-label="Mensagens"></div>
+    <button class="btn ghost" id="newMsg" style="margin:12px 0 14px">Nova mensagem</button>
     <div id="threadList"></div>
   </section>
 
@@ -674,10 +707,19 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <button class="btn" id="smPost">Publicar story</button>
   <button class="btn ghost" id="smSkip">Publicar sem música</button>
 </div></dialog>
+<dialog id="repDlg"><div class="x"><button aria-label="Fechar" onclick="this.closest('dialog').close()">×</button></div><div class="dbody">
+  <h2 style="margin-top:0;font-size:32px">Denunciar</h2>
+  <p class="sub" id="repWhat"></p>
+  <div id="repOpts"></div>
+  <label class="f">Detalhes (opcional)<textarea id="repDet" maxlength="500" placeholder="Conte o que aconteceu"></textarea></label>
+  <button class="btn" id="repSend">Enviar denúncia</button>
+  <p class="note">A denúncia é anônima: só o criador do MEU PACE vê quem enviou.</p>
+</div></dialog>
 <dialog class="chat" id="chatDlg"><div class="chat-in">
   <div class="chat-h"><button class="back" id="chatBack" aria-label="Voltar">‹</button><div class="who" id="chatWho"></div></div>
   <div class="chat-list" id="chatList"></div>
-  <div class="chat-f"><input id="chatIn" placeholder="Escreva uma mensagem" maxlength="1000" aria-label="Mensagem"><button id="chatSend">Enviar</button></div>
+  <div class="chatnote" id="chatNote" hidden></div>
+  <div class="chat-f" id="chatF"><input id="chatIn" placeholder="Escreva uma mensagem" maxlength="1000" aria-label="Mensagem"><button id="chatSend">Enviar</button></div>
 </div></dialog>
 <input type="file" id="fileIn" hidden>
 <dialog id="authDlg"><div class="x"><button aria-label="Fechar" onclick="this.closest('dialog').close()">×</button></div><div class="dbody">
@@ -868,7 +910,12 @@ async function loadAll(){
       q(sb.from("notifications").select("*").eq("to_user",uid).order("created_at",{ascending:false}).limit(150)),
       q(sb.from("messages").select("*").or(`sender.eq.${uid},recipient.eq.${uid}`).order("created_at",{ascending:true}).limit(5000))]);
     notifs=nt;msgs=ms;
-  }else{notifs=[];msgs=[]}
+    const [cr,bl]=await Promise.all([
+      q(sb.from("chat_requests").select("*").or(`sender.eq.${uid},recipient.eq.${uid}`).limit(5000)),
+      q(sb.from("blocks").select("*").or(`blocker.eq.${uid},blocked.eq.${uid}`).limit(5000))]);
+    chatReqs=cr;blocks=bl;
+    reports=iAmCreator()?await q(sb.from("reports").select("*").order("created_at",{ascending:false}).limit(100)):[];
+  }else{notifs=[];msgs=[];chatReqs=[];blocks=[];reports=[]}
   loaded=true;
 }
 let reloadT=0;function scheduleReload(){clearTimeout(reloadT);reloadT=setTimeout(async()=>{await loadAll();render();if($("#storyDlg").open)paintStoryActs();if($("#chatDlg").open)paintChat()},500)}
@@ -881,6 +928,7 @@ window.addEventListener("resize",()=>moveInd(current));window.addEventListener("
 function show(v){
   if(v!=="onb"&&!VIEWS.includes(v))v="feed";
   if(uid&&loaded&&!me()&&v!=="onb"){openForm(false);return}
+  if(v==="alerts"&&current!=="alerts")ntNew=new Set();
   current=v;
   ["onb",...VIEWS].forEach(x=>$("#v-"+x).hidden=x!==v);
   $("#tabs").hidden=v==="onb"&&!editing;
@@ -940,6 +988,12 @@ async function uploadMedia(file,maxImg){
   if(error)throw error;
   return{url:sb.storage.from("media").getPublicUrl(path).data.publicUrl,kind:isV?"video":"image"};
 }
+async function editCover(){
+  const f=await pickFile("image/*");if(!f)return;toast("Enviando capa…");
+  try{const b=await shrink(f,1600,.86);const url=await uploadBlob(b,"jpg","image/jpeg");
+    const{error}=await sb.from("profiles").update({cover:url}).eq("id",uid);if(error)throw error;profiles[uid].cover=url;toast("Capa atualizada!");render()}
+  catch(e){toast(/cover|column/i.test(e.message||"")?"Falta ativar a capa no banco: rode o código SQL":"Não deu para trocar a capa")}
+}
 async function uploadBlob(blob,ext,type){
   const path=`${uid}/${Date.now()}-${Math.random().toString(36).slice(2,8)}.${ext}`;
   const{error}=await sb.storage.from("media").upload(path,blob,{contentType:type,upsert:false});if(error)throw error;
@@ -955,7 +1009,7 @@ function openForm(isEdit){
   $("#onbSub").textContent=isEdit?"Atualize sua foto, cidade e bio.":"Coloque sua foto e seu apelido para a galera te encontrar e te seguir.";
   $("#fNick").value=p.nick||"";$("#fPl").value=p.playlist||"";$("#fBio").value=p.bio||"";$("#fLvl").value=p.level||"Iniciante";
   $("#fCity").innerHTML=CITIES.map(c=>`<option ${c===(p.city||"Maracanaú")?"selected":""}>${esc(c)}</option>`).join("");
-  $("#fCancel").hidden=!isEdit;paintFormAv();
+  $("#fCancel").hidden=!isEdit;$("#fCovBtn").hidden=!isEdit;paintFormAv();
   current="onb";["onb",...VIEWS].forEach(x=>$("#v-"+x).hidden=x!=="onb");$("#tabs").hidden=!isEdit;window.scrollTo(0,0);
 }
 function paintFormAv(){$("#fAv").innerHTML=formPhoto?`<img src="${esc(formPhoto)}" alt="">`:"+"}
@@ -1056,7 +1110,7 @@ document.querySelectorAll("[data-feed]").forEach(b=>b.onclick=()=>{feedMode=b.da
 
 const openCmts=new Set();
 function postHtml(p){
-  const L=likes[p.id]||[],liked=!!uid&&L.includes(uid),C=comments[p.id]||[];
+  const L=likes[p.id]||[],liked=!!uid&&L.includes(uid),C=(comments[p.id]||[]).filter(c=>!isBlockedId(c.author));
   return `<article class="post">
     ${p.pinned?`<div class="pin">${VB.replace('class="vb"','class="vb" style="margin:0"')}Fixado pelo criador</div>`:""}
     ${p.kind==="pr"?`<div class="prbanner"><span>🏆</span>Recorde pessoal</div>`:""}<button class="who" data-person="${esc(p.author)}">${avHtml(p.author)}<div><div class="name">${nm(p.author)}</div><div class="when">${ago(T(p.created_at))}${p.city?" em "+esc(p.city):""}</div></div></button>
@@ -1067,7 +1121,7 @@ function postHtml(p){
       <button data-like="${esc(p.id)}" aria-pressed="${liked}"><svg viewBox="0 0 24 24" fill="${liked?"currentColor":"none"}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Bora! ${L.length||""}</button>
       <button data-cmt="${esc(p.id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-6.5A8 8 0 1 1 21 12z"/></svg>${C.length||""} Comentar</button>
       ${iAmCreator()&&p.author===uid?`<button data-pin="${esc(p.id)}">${p.pinned?"Desafixar":"Fixar"}</button>`:""}
-      ${p.author===uid||iAmCreator()?`<button data-del="${esc(p.id)}">Apagar</button>`:""}
+      ${p.author===uid||iAmCreator()?`<button data-del="${esc(p.id)}">Apagar</button>`:""}${uid&&p.author!==uid?`<button data-report="${esc(p.author)}|${esc(p.id)}" aria-label="Denunciar post">⚑</button>`:""}
     </div>
     ${openCmts.has(p.id)?`<div class="cmts">${C.map(x=>`<div class="cmt"><b>${nm(x.author)}</b>${esc(x.text)}${x.author===uid||p.author===uid||iAmCreator()?`<button class="x" data-cdel="${esc(x.id)}">apagar</button>`:""}</div>`).join("")}<div class="cmt-form"><input placeholder="Escreva um comentário" maxlength="280" data-cin="${esc(p.id)}" aria-label="Comentário"><button data-csend="${esc(p.id)}">Enviar</button></div></div>`:""}
   </article>`;
@@ -1078,7 +1132,7 @@ function renderFeed(){
   renderHero();renderStoryBar();
   $("#composer").hidden=!me();$("#joinCard").hidden=!!me();
   const fol=uid?followingOf(uid):[];
-  let list=feedMode==="following"?posts.filter(p=>fol.includes(p.author)||p.author===uid):posts;
+  let list=(feedMode==="following"?posts.filter(p=>fol.includes(p.author)||p.author===uid):posts).filter(p=>!isBlockedId(p.author));
   list=[...list.filter(p=>p.pinned),...list.filter(p=>!p.pinned)];
   if(!list.length){$("#feed").innerHTML=feedMode==="following"?`<div class="empty"><b>Nada por aqui ainda.</b><br>Siga corredores na aba Galera para ver os treinos deles.</div>`:`<div class="empty"><b>Ninguém postou ainda.</b><br>Seja o primeiro a publicar um treino.</div>`;return}
   $("#feed").innerHTML=list.map(postHtml).join("");mountVideos($("#feed"),true);
@@ -1089,7 +1143,7 @@ function renderPeople(){
   const chips=[["all","Todos"],["city","Em "+myCity()]];if(uid)chips.push(["following","Quem eu sigo"],["followers","Meus seguidores"]);
   $("#peopleChips").innerHTML=chips.map(([k,l])=>`<button class="chip" data-pm="${k}" aria-pressed="${peopleMode===k}">${esc(l)}</button>`).join("");
   const qv=$("#pSearch").value.trim().toLowerCase();
-  let ids=Object.keys(profiles).filter(k=>k!==uid);
+  let ids=Object.keys(profiles).filter(k=>k!==uid&&!isBlockedId(k));
   if(peopleMode==="city")ids=ids.filter(k=>profiles[k].city===myCity());
   if(peopleMode==="following")ids=ids.filter(isFollowing);
   if(peopleMode==="followers"){const fs=followersOf(uid);ids=ids.filter(k=>fs.includes(k))}
@@ -1108,7 +1162,8 @@ function statsOf(id){const mine=posts.filter(p=>p.author===id&&Number(p.km)>0);c
 function profileHtml(id){
   const p=profiles[id]||{};const fs=followersOf(id).length,fg=followingOf(id).length,st=statsOf(id);
   const theirPosts=posts.filter(x=>x.author===id);
-  return `<div class="pcover">${cover("perfil"+id,SERRA.includes(p.city)?"serra":BEACH.includes(p.city)?"praia":"cidade","",null)}</div>
+  if(isBlockedId(id)&&!iBlocked(id))return `<div class="empty" style="margin-top:20px">Este perfil não está disponível.</div>`;
+  return `<div class="pcover">${p.cover?`<img src="${esc(p.cover)}" alt="Capa de ${esc(p.nick||"")}">`:cover("perfil"+id,SERRA.includes(p.city)?"serra":BEACH.includes(p.city)?"praia":"cidade","",null)}${id===uid?`<button class="covbtn" data-covedit="1" aria-label="Trocar foto de capa">${CAM}Capa</button>`:""}</div>
    <div class="phead">${activeStories(id).length?`<button class="avbtn" data-story="${esc(id)}" aria-label="Ver stories">${avHtml(id)}</button>`:avHtml(id)}<div style="padding-bottom:6px;min-width:0"><h2>${nm(id)}</h2>${isCreator(id)?`<div class="pmeta" style="color:var(--neon);font-weight:700">Criador do MEU PACE</div>`:""}${isVerified(id)&&!isCreator(id)?`<div class="toplabel">Verificado pelo MEU PACE</div>`:""}${isTop(id)?`<div class="toplabel">${MEDAL[topPos(id)-1]} Top ${topPos(id)} do mês em quilômetros</div>`:""}<div class="pmeta">${esc(p.city||"")}, CE <span class="lvl">${esc(p.level||"")}</span></div></div></div>
    <div style="padding:0 4px">${p.bio?`<p class="pbio">${esc(p.bio)}</p>`:""}
    <div class="follows"><button data-flist="followers|${esc(id)}"><b>${fs}</b><span>${fs===1?"seguidor":"seguidores"}</span></button><button data-flist="following|${esc(id)}"><b>${fg}</b><span>seguindo</span></button><div class="pacts">${id!==uid?`<button class="btn sm on" data-msg="${esc(id)}">Mensagem</button>`:""}${followBtn(id)}</div></div>
@@ -1117,7 +1172,7 @@ function profileHtml(id){
    ${p.playlist&&musicHost(p.playlist)?`<a class="plbtn" href="${esc(p.playlist)}" target="_blank" rel="noopener">🎧 Ouvir a playlist ${id===uid?"de corrida":"de "+esc(p.nick)}</a>`:""}
    ${prHtml(id)}
    <div class="big-stats"><div><span>Km no app</span><b>${kmTxt(st.km)}</b></div><div><span>Treinos</span><b>${st.runs}</b></div><div><span>Melhor pace</span><b>${st.best?fmtPace(st.best,1):"–"}</b></div><div><span>Maior distância</span><b>${st.longest?kmTxt(st.longest)+"k":"–"}</b></div></div></div>
-   <div class="section-t">${id===uid?"Meus treinos":"Treinos"}</div>${theirPosts.length?theirPosts.map(postHtml).join(""):`<div class="empty">Nenhum treino ainda.</div>`}`;
+   <div class="section-t">${id===uid?"Meus treinos":"Treinos"}</div>${theirPosts.length?theirPosts.map(postHtml).join(""):`<div class="empty">Nenhum treino ainda.</div>`}${id!==uid&&uid?`${iBlocked(id)?`<div class="blockednote">Você bloqueou este perfil. Os posts e mensagens dessa pessoa estão escondidos.</div>`:""}<div class="safety"><button data-rq="${iBlocked(id)?"unblock":"block"}|${esc(id)}">${iBlocked(id)?"Desbloquear":"Bloquear"}</button><button data-report="${esc(id)}|">Denunciar perfil</button></div>`:""}`;
 }
 function openPerson(id){if(!id||!profiles[id])return;curPerson=id;if(id===uid){if($("#personDlg").open)$("#personDlg").close();show("me");return}
   $("#personBody").innerHTML=profileHtml(id);mountVideos($("#personBody"));if(!$("#personDlg").open)$("#personDlg").showModal()}
@@ -1160,10 +1215,29 @@ function renderRaces(){
 function toggleRace(id){const i=raceFollow.indexOf(id);if(i>=0){raceFollow.splice(i,1);toast("Aviso removido")}else{raceFollow.push(id);toast("Pronto! A contagem aparece em Avisos")}saveRaces();render()}
 
 /* ---------- AVISOS ---------- */
-const NTXT={follow:"começou a te seguir",like:"curtiu seu treino",comment:"comentou no seu treino",slike:"curtiu seu story",scomment:"comentou no seu story"};
-const NICON={follow:"+",like:"⚡",comment:"💬",slike:"♥",scomment:"💬"};
-const unreadN=()=>notifs.filter(n=>!n.read).length;
-function notifHtml(n){return `<div class="nt ${n.read?"":"new"}" data-ntf="${esc(n.id)}" role="button" tabindex="0">${avHtml(n.from_user,"noring")}<div class="info"><b>${nm(n.from_user)}</b> ${esc(NTXT[n.type]||"")}${n.text?`: “${esc(n.text)}”`:""}<small>${ago(T(n.created_at))}</small></div>${n.type==="follow"?followBtn(n.from_user):`<span class="ic">${esc(NICON[n.type]||"•")}</span>`}</div>`}
+const NTXT={follow:"começou a te seguir",like:"curtiu seu treino",comment:"comentou no seu treino",slike:"curtiu seu story",scomment:"comentou no seu story",request:"quer conversar com você",accept:"aceitou conversar com você",fpr:"bateu um recorde pessoal 🏆"};
+const NKIND={follow:"seg",like:"cur",comment:"com",slike:"cur",scomment:"com",request:"msg",accept:"msg",fpr:"con"};
+const NICON={follow:["+","#00c3ff"],like:["⚡","#39ff14"],comment:["💬","#00ffa3"],slike:["♥","#ff3b5c"],scomment:["💬","#00ffa3"],request:["✉","#ffe14d"],accept:["✓","#39ff14"],fpr:["🏆","#ffe14d"]};
+let ntFilter="all",ntNew=new Set(),reports=[];
+const unreadN=()=>notifs.filter(n=>!n.read&&!isBlockedId(n.from_user)).length;
+function dayBucket(t){if(new Date(t).toDateString()===new Date().toDateString())return"hoje";return Date.now()-t<7*DAY?"semana":"antes"}
+function groupNotifs(list){const out=[],map={};
+  list.forEach(n=>{if((n.type==="like"||n.type==="slike")&&n.ref){const k=n.type+n.ref+dayBucket(T(n.created_at));if(map[k]){map[k].others.push(n);return}map[k]={...n,others:[]};out.push(map[k])}else out.push({...n,others:[]})});
+  return out}
+function ntThumb(n){
+  if(n.type==="like"||n.type==="comment"||n.type==="fpr"){const p=posts.find(x=>x.id===n.ref);if(!p)return"";
+    if(p.photo)return `<img class="nthumb" src="${esc(p.photo)}" alt="">`;if(p.poster)return `<img class="nthumb" src="${esc(p.poster)}" alt="">`;
+    if(p.run_id&&runsById[p.run_id]&&runsById[p.run_id].route.length>1)return `<span class="nthumb">${routeSvg(runsById[p.run_id].route)}</span>`;
+    if(p.video)return `<span class="nthumb ph">▶</span>`;return ""}
+  if(n.type==="slike"||n.type==="scomment"){const st=stories.find(x=>x.id===n.ref);return st&&st.kind==="image"?`<img class="nthumb" src="${esc(st.media)}" alt="">`:`<span class="nthumb ph">◎</span>`}
+  return ""}
+function notifHtml(n){
+  const who=[n.from_user,...n.others.map(o=>o.from_user)].filter((v,i,a)=>a.indexOf(v)===i);
+  const names=who.length===1?nm(who[0]):who.length===2?`${nm(who[0])} e ${nm(who[1])}`:`${nm(who[0])}, ${nm(who[1])} e mais ${who.length-2}`;
+  const verb=who.length>1&&n.type==="like"?"curtiram seu treino":who.length>1&&n.type==="slike"?"curtiram seu story":NTXT[n.type]||"";
+  const[ic,col]=NICON[n.type]||["•","#39ff14"];
+  const act=n.type==="follow"?followBtn(n.from_user):n.type==="request"?`<button class="btn sm" data-thread="${esc(n.from_user)}">Ver</button>`:ntThumb(n);
+  return `<div class="nt ${n.fresh?"new":""}" data-ntf="${esc(n.id)}" role="button" tabindex="0"><span class="nav-av">${avHtml(n.from_user,"noring")}<span class="nic" style="background:${col}">${ic}</span></span><div class="info"><b>${names}</b> ${esc(verb)}${n.text?`: “${esc(n.text)}”`:""}<small>${ago(T(n.created_at))}</small></div>${act}</div>`}
 function raceAlerts(){
   const mine=raceFollow.map(id=>RACES.find(r=>r.id===id)).filter(r=>r&&daysTo(r)>=0).map(r=>{const d=daysTo(r);return{r,d,kind:d===0?"today":d<=7?"hot":"far",follow:true,t:d===0?"É hoje! "+r.n:d===1?"Amanhã: "+r.n:r.n,
     p:d===0?`Largada ${r.h?"às "+r.h:"hoje"} em ${r.c}. Bom pace!`:d===1?`Separe o kit, hidrate e durma cedo. Largada ${r.h?"às "+r.h:"amanhã"} em ${r.c}.`:d<=7?`Semana de prova em ${r.c}.`:`${r.c}, ${rDate(r).getDate()} de ${MESES_L[rDate(r).getMonth()].toLowerCase()}.`}}).sort((a,b)=>a.d-b.d);
@@ -1172,28 +1246,44 @@ function raceAlerts(){
 }
 function alertHtml(a){return `<div class="alert ${a.kind==="today"?"today":a.kind==="hot"?"hot":""}"><div class="cd">${a.d===0?"HOJE":a.d}<small>${a.d===0?"":a.d===1?"dia":"dias"}</small></div><div><h4>${esc(a.t)}</h4><p>${esc(a.p)}</p><div class="go"><a href="${esc(a.r.url)}" target="_blank" rel="noopener">Inscrição</a><button data-follow="${a.r.id}">${a.follow?"Parar de seguir":"Me avisar"}</button></div></div></div>`}
 function renderAlerts(){
-  const{mine,sug}=raceAlerts();let h="";
-  h+=`<div class="section-t">Interações</div>`+(!uid?`<div class="empty">Entre na sua conta para ver quem te seguiu, curtiu e comentou.</div>`:notifs.length?notifs.slice(0,80).map(notifHtml).join(""):`<div class="empty">Quando alguém te seguir, curtir ou comentar seus treinos e stories, aparece aqui.</div>`);
-  h+=`<div class="section-t">Provas que você segue</div>`+(mine.length?mine.map(alertHtml).join(""):`<div class="empty">Na aba Provas, toque no sino de uma corrida.</div>`);
-  h+=`<div class="section-t">Novidades em ${esc(myCity())}</div>`+(sug.length?sug.map(alertHtml).join(""):`<div class="empty">Nenhuma prova nova em ${esc(myCity())} nas próximas semanas.</div>`);
+  const{mine,sug}=raceAlerts();notifs.forEach(n=>{if(!n.read)ntNew.add(n.id)});
+  const chips=[["all","Tudo"],["cur","Curtidas"],["com","Comentários"],["seg","Seguidores"],["msg","Mensagens"],["con","Conquistas"],["prova","Provas"]];
+  let h=`<div class="chips">${chips.map(([k,l])=>`<button class="chip" data-ntfil="${k}" aria-pressed="${ntFilter===k}">${l}</button>`).join("")}</div>`;
+  if(uid&&ntFilter==="all"){
+    const nNew=[...ntNew].filter(id=>notifs.some(n=>n.id===id)).length,pos=isTop(uid)?topPos(uid):0,reqs=incomingRequests().length;
+    h+=`<div class="nhero"><div><b>${nNew?nNew+(nNew===1?" novidade":" novidades"):"Tudo em dia ✓"}</b><span>${nNew?"desde a última vez que você passou aqui":"Você já viu todas as interações"}</span></div>${pos?`<div class="nach">${MEDAL[pos-1]} Você está no Top ${pos} do mês!</div>`:""}${reqs?`<button class="nach" data-goto="msgs">✉ ${reqs} ${reqs===1?"pedido":"pedidos"} de mensagem esperando você</button>`:""}</div>`;
+    if(iAmCreator()&&reports.length)h+=`<div class="section-t">Denúncias para analisar (${reports.length})</div>`+reports.slice(0,20).map(r=>`<div class="repcard"><b>${esc(r.reason)}</b> contra ${r.target?nm(r.target):"?"}${r.details?`<br><span class="note">“${esc(r.details)}”</span>`:""}<br><small class="note">${ago(T(r.created_at))}</small><div class="reqacts">${r.target?`<button data-person="${esc(r.target)}">Ver perfil</button>`:""}${r.post_id&&posts.some(p=>p.id===r.post_id)?`<button class="danger" data-repdelpost="${esc(r.id)}|${esc(r.post_id)}">Apagar post</button>`:""}<button data-repok="${esc(r.id)}">Resolvido</button></div></div>`).join("");
+  }
+  if(ntFilter!=="prova"){
+    if(!uid)h+=`<div class="empty">Entre na sua conta para ver quem te seguiu, curtiu e comentou.</div>`;
+    else{let L=notifs.filter(n=>profiles[n.from_user]&&!isBlockedId(n.from_user));if(ntFilter!=="all")L=L.filter(n=>NKIND[n.type]===ntFilter);
+      const G=groupNotifs(L).map(g=>({...g,fresh:ntNew.has(g.id)||g.others.some(o=>ntNew.has(o.id))}));
+      if(!G.length)h+=`<div class="empty">Nada por aqui ainda. Quando alguém interagir com você, aparece aqui.</div>`;
+      else[["hoje","Hoje"],["semana","Esta semana"],["antes","Anteriores"]].forEach(([k,l])=>{const part=G.filter(g=>dayBucket(T(g.created_at))===k);if(part.length)h+=`<div class="section-t">${l}</div>`+part.slice(0,60).map(notifHtml).join("")})}
+  }
+  if(ntFilter==="all"||ntFilter==="prova"){
+    h+=`<div class="section-t">Provas que você segue</div>`+(mine.length?mine.map(alertHtml).join(""):`<div class="empty">Na aba Provas, toque no sino de uma corrida.</div>`);
+    h+=`<div class="section-t">Novidades em ${esc(myCity())}</div>`+(sug.length?sug.map(alertHtml).join(""):`<div class="empty">Nenhuma prova nova em ${esc(myCity())} nas próximas semanas.</div>`);
+  }
   $("#alertList").innerHTML=h;
-  if(uid&&unreadN()){clearTimeout(renderAlerts.t);renderAlerts.t=setTimeout(async()=>{await sb.from("notifications").update({read:true}).eq("to_user",uid).eq("read",false);notifs.forEach(n=>n.read=true);updateBadge()},2500)}
+  if(uid&&notifs.some(n=>!n.read)){clearTimeout(renderAlerts.t);renderAlerts.t=setTimeout(async()=>{await sb.from("notifications").update({read:true}).eq("to_user",uid).eq("read",false);notifs.forEach(n=>n.read=true);updateBadge()},2500)}
 }
 function updateBadge(){const{mine,sug}=raceAlerts();const n=mine.filter(a=>a.d<=7).length+sug.length+unreadN();const b=$("#badge");b.textContent=n;b.hidden=n===0}
 function openNotif(id){
   const n=notifs.find(x=>x.id===id);if(!n)return;
   if(n.type==="follow")return openPerson(n.from_user);
+  if(n.type==="request"||n.type==="accept")return openChat(n.from_user);
   if(n.type==="slike"||n.type==="scomment"){const mine=activeStories(uid);const i=mine.findIndex(s=>s.id===n.ref);if(i>=0){openStories(uid);sv.i=i;playStory();if(n.type==="scomment"){$("#svSheet").hidden=false;paintStoryActs()}}else toast("Esse story já expirou (24h)");return}
   const p=posts.find(x=>x.id===n.ref);if(!p){toast("Esse treino não está mais disponível");return}
   curPerson="";if(n.type==="comment")openCmts.add(p.id);
-  $("#personBody").innerHTML=`<div class="section-t" style="margin-top:0">Seu treino</div>`+postHtml(p);mountVideos($("#personBody"));
+  $("#personBody").innerHTML=`<div class="section-t" style="margin-top:0">${p.author===uid?"Seu treino":"Treino de "+esc(nick(p.author))}</div>`+postHtml(p);mountVideos($("#personBody"));
   if(!$("#personDlg").open)$("#personDlg").showModal();
 }
 
 /* ---------- STORIES ---------- */
 function seenMap(){try{return JSON.parse(localStorage.getItem("meupace:seen")||"{}")}catch(e){return{}}}
 function markSeen(sid){try{const m=seenMap();m[sid]=1;localStorage.setItem("meupace:seen",JSON.stringify(m))}catch(e){}}
-function storyAuthors(){const ids=[...new Set(stories.filter(s=>Date.now()-T(s.created_at)<DAY).map(s=>s.author))].filter(i=>i!==uid&&profiles[i]);
+function storyAuthors(){const ids=[...new Set(stories.filter(s=>Date.now()-T(s.created_at)<DAY).map(s=>s.author))].filter(i=>i!==uid&&profiles[i]&&!isBlockedId(i));
   const fol=uid?followingOf(uid):[],last=i=>Math.max(...activeStories(i).map(s=>T(s.created_at)));
   return ids.sort((a,b)=>(fol.includes(b)-fol.includes(a))||(last(b)-last(a)))}
 function renderStoryBar(){
@@ -1273,32 +1363,88 @@ $("#svIn2").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault(
 $("#svSheetBd").addEventListener("click",async e=>{const b=e.target.closest("[data-scdel]");if(!b)return;await sb.from("story_comments").delete().eq("id",b.dataset.scdel);loadStoryCmts(sv.cur)});
 
 /* ---------- MENSAGENS ---------- */
+let chatReqs=[],blocks=[],msgTab="chats";
+const mutual=id=>!!uid&&isFollowing(id)&&follows.some(f=>f.follower===id&&f.following===uid);
+const isBlockedId=id=>!!uid&&blocks.some(b=>(b.blocker===uid&&b.blocked===id)||(b.blocker===id&&b.blocked===uid));
+const iBlocked=id=>!!uid&&blocks.some(b=>b.blocker===uid&&b.blocked===id);
+const reqWith=id=>chatReqs.find(r=>(r.sender===uid&&r.recipient===id)||(r.sender===id&&r.recipient===uid));
+function chatState(id){
+  if(isBlockedId(id))return iBlocked(id)?"blocked":"blockedme";
+  if(mutual(id))return"open";const r=reqWith(id);if(r&&r.status==="accepted")return"open";
+  if(!r)return msgs.some(m=>m.sender===id&&m.recipient===uid)?"open":"new";
+  if(r.sender===uid)return r.status==="pending"?"waiting":"declined";
+  return r.status==="pending"?"incoming":"declinedIn";
+}
+function incomingRequests(){return chatReqs.filter(r=>r.recipient===uid&&r.status==="pending"&&profiles[r.sender]&&!isBlockedId(r.sender)&&!mutual(r.sender))}
 function threads(){const m={};msgs.forEach(x=>{const o=x.sender===uid?x.recipient:x.sender;const t=m[o]=m[o]||{id:o,at:0,unread:0,last:""};t.at=Math.max(t.at,T(x.created_at));t.last=x.text;if(x.recipient===uid&&!x.read)t.unread++});
-  return Object.values(m).filter(t=>profiles[t.id]).sort((a,b)=>b.at-a.at)}
-function updateMsgBadge(){const n=threads().filter(t=>t.unread).length;const b=$("#msgBadge");b.textContent=n;b.hidden=n===0}
-function renderThreads(){const t=threads();
-  $("#threadList").innerHTML=t.length?t.map(x=>`<button class="thread" data-thread="${esc(x.id)}">${avHtml(x.id)}<div class="info"><div class="name">${nm(x.id)}</div><small>${esc(x.last.slice(0,40))}${x.last.length>40?"…":""}, ${ago(x.at)}</small></div>${x.unread?`<span class="dot" aria-label="Não lida"></span>`:""}</button>`).join("")
-   :`<div class="empty"><b>Nenhuma conversa ainda.</b><br>Abra o perfil de alguém e toque em Mensagem.</div>`}
+  return Object.values(m).filter(t=>profiles[t.id]&&!isBlockedId(t.id)&&!["incoming","declinedIn"].includes(chatState(t.id))).sort((a,b)=>b.at-a.at)}
+function updateMsgBadge(){const n=threads().filter(t=>t.unread).length+incomingRequests().length;const b=$("#msgBadge");b.textContent=n;b.hidden=n===0}
+function renderThreads(){
+  const inc=incomingRequests();
+  $("#msgTabs").innerHTML=`<button data-mtab="chats" aria-pressed="${msgTab==="chats"}">Conversas</button><button data-mtab="reqs" aria-pressed="${msgTab==="reqs"}">Solicitações${inc.length?" ("+inc.length+")":""}</button>`;
+  if(msgTab==="reqs"){
+    $("#threadList").innerHTML=inc.length?inc.map(r=>{const first=msgs.find(m=>m.sender===r.sender&&m.recipient===uid);return `<div class="reqbox" style="text-align:left"><div class="who" data-person="${esc(r.sender)}" style="cursor:pointer">${avHtml(r.sender,"noring")}<div><div class="name">${nm(r.sender)}</div><div class="when">${esc((profiles[r.sender]||{}).city||"")}, ${followersOf(r.sender).length} seguidores</div></div></div>${first?`<p style="margin:10px 0">“${esc(first.text)}”</p>`:""}<div class="reqacts" style="justify-content:flex-start"><button class="ok" data-rq="accept|${esc(r.sender)}">Aceitar</button><button data-rq="decline|${esc(r.sender)}">Recusar</button><button class="danger" data-rq="block|${esc(r.sender)}">Bloquear</button></div></div>`}).join("")
+      :`<div class="empty">Nenhuma solicitação. Quando alguém que não é seu amigo te mandar mensagem, ela aparece aqui antes.</div>`;
+    return}
+  const t=threads();
+  $("#threadList").innerHTML=t.length?t.map(x=>{const st=chatState(x.id);return `<button class="thread" data-thread="${esc(x.id)}">${avHtml(x.id)}<div class="info"><div class="name">${nm(x.id)}</div><small>${st==="waiting"?`<span class="tag">Aguardando aceitar · </span>`:st==="declined"?`<span class="tag">Não aceitou · </span>`:""}${esc(x.last.slice(0,40))}${x.last.length>40?"…":""}, ${ago(x.at)}</small></div>${x.unread?`<span class="dot" aria-label="Não lida"></span>`:""}</button>`}).join("")
+   :`<div class="empty"><b>Nenhuma conversa ainda.</b><br>Abra o perfil de alguém e toque em Mensagem.</div>`;
+}
 $("#newMsg").onclick=()=>{peopleMode="all";show("people");toast("Toque no perfil de alguém e depois em Mensagem")};
 let chatWith="";
-function openChat(id){if(needLogin("Entre para mandar mensagens."))return;chatWith=id;
-  $("#chatWho").innerHTML=`<button class="who" data-person="${esc(id)}">${avHtml(id,"noring")}<div><div class="name">${nm(id)}</div><div class="when">${esc((profiles[id]&&profiles[id].city)||"")}</div></div></button>`;
-  if(!$("#chatDlg").open)$("#chatDlg").showModal();paintChat();setTimeout(()=>$("#chatIn").focus(),50)}
-async function paintChat(){
-  const id=chatWith;if(!id)return;const all=msgs.filter(m=>(m.sender===uid&&m.recipient===id)||(m.sender===id&&m.recipient===uid));
-  const L=$("#chatList");
-  L.innerHTML=`<div class="lock">Só você e ${esc(nick(id))} veem esta conversa</div>`+all.map(m=>{const d=new Date(m.created_at);return `<div class="bub ${m.sender===uid?"me":"them"}">${esc(m.text)}<time>${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}</time></div>`}).join("")+(all.length?"":`<div class="empty">Diga oi para ${esc(nick(id))}!</div>`);
-  L.scrollTop=L.scrollHeight;
-  if(all.some(m=>m.recipient===uid&&!m.read)){all.forEach(m=>{if(m.recipient===uid)m.read=true});await sb.from("messages").update({read:true}).eq("recipient",uid).eq("sender",id).eq("read",false);updateMsgBadge()}
+function openChat(id){if(needLogin("Entre para mandar mensagens."))return;if(!profiles[id])return;chatWith=id;
+  $("#chatWho").innerHTML=`<button class="who" data-person="${esc(id)}">${avHtml(id,"noring")}<div><div class="name">${nm(id)}</div><div class="when">${mutual(id)?"Amigos":esc((profiles[id]&&profiles[id].city)||"")}</div></div></button>`;
+  if(!$("#chatDlg").open)$("#chatDlg").showModal();paintChat()}
+function paintChatState(){
+  const id=chatWith,st=chatState(id),n=esc(nick(id));let note="",canType=true,box="";
+  if(st==="new"){note=`Vocês ainda não são amigos. Sua primeira mensagem vai como <b>solicitação</b> para ${n}.`}
+  else if(st==="waiting"){canType=false;note=`Mensagem enviada. Aguardando <b>${n}</b> aceitar a conversa.`}
+  else if(st==="declined"){canType=false;note=`${n} não aceitou a conversa.`}
+  else if(st==="incoming"){canType=false;box=`<div class="reqbox"><p><b>${n}</b> quer conversar com você.</p><div class="reqacts"><button class="ok" data-rq="accept|${esc(id)}">Aceitar</button><button data-rq="decline|${esc(id)}">Recusar</button><button class="danger" data-rq="block|${esc(id)}">Bloquear</button></div></div>`}
+  else if(st==="declinedIn"){canType=false;box=`<div class="reqbox"><p>Você recusou esta conversa.</p><div class="reqacts"><button class="ok" data-rq="accept|${esc(id)}">Aceitar agora</button></div></div>`}
+  else if(st==="blocked"){canType=false;box=`<div class="reqbox"><p>Você bloqueou ${n}.</p><div class="reqacts"><button data-rq="unblock|${esc(id)}">Desbloquear</button></div></div>`}
+  else if(st==="blockedme"){canType=false;note=`Não é possível conversar com ${n}.`}
+  $("#chatNote").innerHTML=note;$("#chatNote").hidden=!note;$("#chatF").hidden=!canType;
+  return box;
 }
-async function doSend(){const t=$("#chatIn").value.trim();if(!t||!chatWith)return;$("#chatSend").disabled=true;
-  const{data,error}=await sb.from("messages").insert({sender:uid,recipient:chatWith,text:t}).select().single();
+async function paintChat(){
+  const id=chatWith;if(!id)return;const box=paintChatState();
+  const all=msgs.filter(m=>(m.sender===uid&&m.recipient===id)||(m.sender===id&&m.recipient===uid));
+  const L=$("#chatList");
+  L.innerHTML=box+`<div class="lock">Só você e ${esc(nick(id))} veem esta conversa</div>`+all.map(m=>{const d=new Date(m.created_at);return `<div class="bub ${m.sender===uid?"me":"them"}">${esc(m.text)}<time>${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}</time></div>`}).join("")+(all.length||box?"":`<div class="empty">Diga oi para ${esc(nick(id))}!</div>`);
+  L.scrollTop=L.scrollHeight;
+  if(chatState(id)==="open"&&all.some(m=>m.recipient===uid&&!m.read)){all.forEach(m=>{if(m.recipient===uid)m.read=true});await sb.from("messages").update({read:true}).eq("recipient",uid).eq("sender",id).eq("read",false);updateMsgBadge()}
+}
+async function doSend(){const t=$("#chatIn").value.trim(),id=chatWith;if(!t||!id)return;$("#chatSend").disabled=true;
+  const st=chatState(id);
+  if(st==="new"){const{data:rq,error:e1}=await sb.from("chat_requests").insert({sender:uid,recipient:id,status:"pending"}).select().single();if(e1&&!/duplicate/i.test(e1.message)){$("#chatSend").disabled=false;toast(/chat_requests|relation/i.test(e1.message)?"Falta ativar as solicitações no banco: rode o código SQL":"Não deu para enviar");return}if(rq)chatReqs.push(rq)}
+  const{data,error}=await sb.from("messages").insert({sender:uid,recipient:id,text:t}).select().single();
   $("#chatSend").disabled=false;if(error){toast("Não deu para enviar");return}
-  msgs.push(data);$("#chatIn").value="";paintChat();$("#chatIn").focus()}
+  msgs.push(data);$("#chatIn").value="";if(st==="new")toast("Solicitação enviada para "+nick(id));paintChat();if(chatState(id)==="open")$("#chatIn").focus()}
 $("#chatSend").onclick=doSend;
 $("#chatIn").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();doSend()}});
 $("#chatBack").onclick=()=>$("#chatDlg").close();
 $("#chatDlg").addEventListener("close",()=>{chatWith="";render()});
+async function reqAction(kind,id){
+  if(kind==="accept"){const{error}=await sb.from("chat_requests").update({status:"accepted"}).eq("sender",id).eq("recipient",uid);if(error){toast("Não deu para aceitar");return}const r=chatReqs.find(r=>r.sender===id&&r.recipient===uid);if(r)r.status="accepted";toast("Agora você e "+nick(id)+" podem conversar")}
+  else if(kind==="decline"){await sb.from("chat_requests").update({status:"declined"}).eq("sender",id).eq("recipient",uid);const r=chatReqs.find(r=>r.sender===id&&r.recipient===uid);if(r)r.status="declined";toast("Solicitação recusada")}
+  else if(kind==="block"){if(!confirm("Bloquear "+nick(id)+"? Vocês não poderão conversar e você não verá mais os posts dessa pessoa."))return;
+    const{error}=await sb.from("blocks").insert({blocker:uid,blocked:id});if(error&&!/duplicate/i.test(error.message)){toast(/blocks|relation/i.test(error.message)?"Falta ativar o bloqueio no banco: rode o código SQL":"Não deu para bloquear");return}
+    blocks.push({blocker:uid,blocked:id});await sb.from("follows").delete().eq("follower",uid).eq("following",id);follows=follows.filter(f=>!(f.follower===uid&&f.following===id));toast(nick(id)+" foi bloqueado(a)")}
+  else if(kind==="unblock"){await sb.from("blocks").delete().eq("blocker",uid).eq("blocked",id);blocks=blocks.filter(b=>!(b.blocker===uid&&b.blocked===id));toast(nick(id)+" foi desbloqueado(a)")}
+  render();if($("#chatDlg").open)paintChat();if($("#personDlg").open&&curPerson===id)openPerson(id);
+}
+/* ---------- denúncias ---------- */
+const REASONS=["Spam ou golpe","Assédio ou ofensa","Conteúdo impróprio","Perfil falso","Treino falso ou trapaça no ranking","Outro motivo"];
+let repCtx={};
+function openReport(target,postId){if(needLogin())return;repCtx={target,postId};
+  $("#repWhat").textContent=postId?"Este post de "+nick(target):"O perfil de "+nick(target);
+  $("#repOpts").innerHTML=REASONS.map((r,i)=>`<label class="rep-opt"><input type="radio" name="rep" value="${esc(r)}" ${i===0?"checked":""}> ${esc(r)}</label>`).join("");
+  $("#repDet").value="";$("#repDlg").showModal()}
+$("#repSend").onclick=async()=>{const reason=(document.querySelector('input[name="rep"]:checked')||{}).value||"Outro motivo";
+  const row={reporter:uid,target:repCtx.target,reason,details:$("#repDet").value.trim().slice(0,500)};if(repCtx.postId)row.post_id=repCtx.postId;
+  const{error}=await sb.from("reports").insert(row);if(error){toast(/reports|relation/i.test(error.message)?"Falta ativar as denúncias no banco: rode o código SQL":"Não deu para enviar");return}
+  $("#repDlg").close();toast("Denúncia enviada. Obrigado por cuidar da comunidade!")};
 
 /* ---------- ações (cliques) ---------- */
 async function toggleFollow(id){if(needLogin("Entre para seguir corredores."))return;
@@ -1306,6 +1452,16 @@ async function toggleFollow(id){if(needLogin("Entre para seguir corredores."))re
   else{follows.push({follower:uid,following:id});render();const{error}=await sb.from("follows").insert({follower:uid,following:id});toast(error?"Não deu para seguir agora":"Seguindo "+nick(id))}
   if($("#personDlg").open&&curPerson)openPerson(curPerson);scheduleReload()}
 document.addEventListener("click",async e=>{
+  const sx=e.target.closest("[data-rq],[data-mtab],[data-ntfil],[data-report],[data-repok],[data-repdelpost],[data-covedit]");
+  if(sx){const d=sx.dataset;e.stopPropagation();
+    if(d.rq){const[k,id]=d.rq.split("|");reqAction(k,id)}
+    else if(d.mtab){msgTab=d.mtab;renderThreads()}
+    else if(d.ntfil){ntFilter=d.ntfil;renderAlerts()}
+    else if(d.report){const[t,pid]=d.report.split("|");openReport(t,pid||"")}
+    else if(d.repok){await sb.from("reports").delete().eq("id",d.repok);reports=reports.filter(r=>r.id!==d.repok);renderAlerts();toast("Denúncia resolvida")}
+    else if(d.repdelpost){const[rid,pid]=d.repdelpost.split("|");if(!confirm("Apagar este post?"))return;await sb.from("posts").delete().eq("id",pid);await sb.from("reports").delete().eq("id",rid);posts=posts.filter(p=>p.id!==pid);reports=reports.filter(r=>r.id!==rid);renderAlerts();toast("Post apagado")}
+    else if(d.covedit){editCover()}
+    return}
   const vf=e.target.closest("[data-verify]");if(vf){const id=vf.dataset.verify,val=!isVerified(id);vf.disabled=true;const{error}=await sb.rpc("set_verified",{target:id,val});vf.disabled=false;
     if(error){toast(/set_verified|function/i.test(error.message)?"Falta ativar o selo no banco: rode o código SQL":"Não deu para mudar o selo");return}
     profiles[id].verified=val;toast(val?nick(id)+" agora tem o selo verificado ✓":"Selo removido de "+nick(id));render();if($("#personDlg").open)openPerson(id);return}
