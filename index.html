@@ -362,6 +362,38 @@ video.fv{cursor:pointer;max-height:560px;object-fit:cover;width:100%}
 .vplay span{width:68px;height:68px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;border:2px solid rgba(255,255,255,.4)}
 .vplay svg{width:30px;height:30px;margin-left:4px;fill:#fff}
 .vwrap.paused .vplay{display:grid}
+.setcard{background:var(--s1);border:1px solid var(--line);border-radius:16px;margin:18px 0 6px;overflow:hidden}
+.setcard .st-h{padding:14px 16px 6px;font-weight:800;color:var(--mute);font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.setcard button{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;border-top:1px solid var(--line);padding:15px 16px;color:var(--ink);font-size:16px;font-weight:600;cursor:pointer;text-align:left}
+.setcard button::after{content:"›";color:var(--mute);font-size:22px}
+.setcard button.danger{color:#ff3b5c}
+dialog.doc{width:min(96vw,560px);max-height:88vh;padding:0}
+.doc .dbody h3{font-size:17px;margin:18px 0 6px;color:var(--neon)}
+.doc .dbody p{margin:0;font-size:15px;line-height:1.55;color:#d6dad5}
+.doc .upd{font-size:12px;color:var(--mute);margin-top:4px}
+.agree{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:14px;color:var(--mute);line-height:1.4}
+.agree input{width:22px;height:22px;flex:none;accent-color:var(--neon);margin-top:1px}
+.agree button,.legal button{background:none;border:0;color:var(--neon);padding:0;font:inherit;text-decoration:underline;cursor:pointer}
+.legal{text-align:center;font-size:13px;color:var(--mute);margin-top:12px}
+dialog.tour{width:100vw;max-width:520px;height:100dvh;max-height:100dvh;border:0;border-radius:0;padding:0;background:#121212}
+.tour-in{height:100%;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 18px) 22px calc(env(safe-area-inset-bottom,0px) + 18px);position:relative;overflow:hidden}
+.tour-in::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:#39ff14;filter:blur(120px);opacity:.14;left:-200px;top:-180px}
+.tour-skip{align-self:flex-end;background:none;border:0;color:var(--mute);font-weight:700;font-size:15px;cursor:pointer;position:relative;z-index:1}
+.tslides{flex:1;display:flex;overflow:hidden;position:relative;z-index:1}
+.tslide{flex:0 0 100%;display:flex;flex-direction:column;justify-content:center;transition:transform .45s cubic-bezier(.3,1.2,.5,1)}
+.tslide .tic{width:120px;height:120px;border-radius:32px;background:rgba(57,255,20,.12);border:2px solid rgba(57,255,20,.5);display:grid;place-items:center;margin-bottom:26px;box-shadow:0 0 40px rgba(57,255,20,.25)}
+.tslide .tic svg{width:64px;height:64px;color:var(--neon)}
+.tslide h2{font-size:46px;margin:0 0 12px}
+.tslide h2 em{font-style:normal;color:var(--neon)}
+.tslide p{font-size:17px;color:#cfd4ce;line-height:1.5;margin:0}
+.tslide ul{margin:16px 0 0;padding:0;list-style:none}
+.tslide li{display:flex;gap:10px;align-items:center;font-size:16px;margin:10px 0;color:#e6e9e5}
+.tslide li b{color:var(--neon)}
+.tsug{margin-top:16px;max-height:44vh;overflow-y:auto}
+.tdots{display:flex;justify-content:center;gap:7px;margin:14px 0;position:relative;z-index:1}
+.tdots i{width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,.25);transition:width .25s}
+.tdots i.on{width:24px;background:var(--neon)}
+@media (prefers-reduced-motion: reduce){.tslide{transition:none}}
 /* hero corredor */
 .hero{position:relative;margin:16px 0 4px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(120% 90% at 85% 10%,rgba(57,255,20,.18),transparent 60%),#0f0f0f;min-height:210px;padding:22px 20px}
 .hero h2{margin:0;font-size:52px;max-width:60%}
@@ -690,7 +722,13 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
     <div id="meProfile"></div>
     <button class="btn" id="shareBtn">Convidar amigos para o MEU PACE</button>
     <button class="btn ghost" id="editBtn">Editar perfil</button>
-    <button class="btn ghost" id="logoutBtn" style="border-color:var(--line);color:var(--mute)">Sair da conta</button>
+    <div class="setcard"><div class="st-h">Conta e privacidade</div>
+      <button id="tourBtn" type="button">Ver o tour do app</button>
+      <button data-doc="terms" type="button">Termos de uso</button>
+      <button data-doc="priv" type="button">Política de privacidade</button>
+      <button id="logoutBtn" type="button">Sair da conta</button>
+      <button class="danger" id="delBtn" type="button">Apagar minha conta</button>
+    </div>
     <p class="note" id="meEmail" style="text-align:center"></p>
   </section>
 </main>
@@ -744,6 +782,24 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <button class="btn ghost" id="cropPick" type="button" style="margin-top:12px">Escolher outra foto</button>
   <div class="cropacts"><button class="btn ghost" id="cropCancel" type="button" style="border-color:var(--line);color:var(--mute)">Cancelar</button><button class="btn" id="cropSave" type="button">Salvar</button></div>
 </div></dialog>
+<dialog class="doc" id="docDlg"><div class="x"><button aria-label="Fechar" onclick="this.closest('dialog').close()">×</button></div><div class="dbody">
+  <div class="seg" role="group" aria-label="Documento"><button data-doc="terms" id="docT">Termos de uso</button><button data-doc="priv" id="docP">Privacidade</button></div>
+  <h2 id="docTitle" style="margin:16px 0 0;font-size:34px"></h2><p class="upd">Atualizado em 4 de novembro de 2026</p>
+  <div id="docBody"></div><div style="height:10px"></div>
+</div></dialog>
+<dialog id="delDlg"><div class="x"><button aria-label="Fechar" onclick="this.closest('dialog').close()">×</button></div><div class="dbody">
+  <h2 style="margin-top:0;font-size:32px;color:#ff3b5c">Apagar minha conta</h2>
+  <p class="sub">Isto apaga para sempre seu perfil, posts, treinos, stories, comentários, mensagens, fotos e vídeos. Não dá para desfazer.</p>
+  <label class="f">Para confirmar, digite APAGAR<input id="delWord" autocomplete="off" autocapitalize="characters" placeholder="APAGAR"></label>
+  <button class="btn" id="delGo" style="background:#ff3b5c;color:#fff;box-shadow:none">Apagar minha conta para sempre</button>
+  <button class="btn ghost" type="button" onclick="this.closest('dialog').close()" style="border-color:var(--line);color:var(--mute)">Cancelar</button>
+</div></dialog>
+<dialog class="tour" id="tourDlg"><div class="tour-in">
+  <button class="tour-skip" id="tourSkip" type="button">Pular</button>
+  <div class="tslides" id="tSlides"></div>
+  <div class="tdots" id="tDots"></div>
+  <button class="btn" id="tourNext" type="button" style="margin-top:0">Próximo</button>
+</div></dialog>
 <dialog class="chat" id="chatDlg"><div class="chat-in">
   <div class="chat-h"><button class="back" id="chatBack" aria-label="Voltar">‹</button><div class="who" id="chatWho"></div></div>
   <div class="chat-list" id="chatList"></div>
@@ -757,8 +813,10 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <div class="seg" role="group" aria-label="Conta"><button data-am="signup" aria-pressed="true">Criar conta</button><button data-am="login" aria-pressed="false">Entrar</button></div>
   <label class="f">E-mail<input id="aEmail" type="email" autocomplete="email" inputmode="email" placeholder="voce@email.com"></label>
   <label class="f">Senha<input id="aPass" type="password" placeholder="Mínimo 6 caracteres"></label>
+  <label class="agree" id="agreeRow"><input type="checkbox" id="aAgree"><span>Li e aceito os <button type="button" data-doc="terms">Termos de uso</button> e a <button type="button" data-doc="priv">Política de privacidade</button>.</span></label>
   <button class="btn" id="authGo">Criar conta</button>
   <button class="btn ghost" id="authForgot" hidden style="border:0">Esqueci minha senha</button>
+  <p class="legal"><button type="button" data-doc="terms">Termos de uso</button> · <button type="button" data-doc="priv">Privacidade</button></p>
 </div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
@@ -975,10 +1033,11 @@ $("#msgBtn").onclick=()=>{if(needLogin("Entre para conversar com a galera."))ret
 /* ---------- conta (entrar / criar) ---------- */
 let authMode="signup";
 function openAuth(msg){$("#authMsg").textContent=msg||"";setAuthMode(authMode);if(!$("#authDlg").open)$("#authDlg").showModal()}
-function setAuthMode(m){authMode=m;document.querySelectorAll("[data-am]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.am===m));$("#authGo").textContent=m==="signup"?"Criar conta":"Entrar";$("#authForgot").hidden=m==="signup";$("#aPass").autocomplete=m==="signup"?"new-password":"current-password"}
+function setAuthMode(m){authMode=m;$("#agreeRow").hidden=m!=="signup";document.querySelectorAll("[data-am]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.am===m));$("#authGo").textContent=m==="signup"?"Criar conta":"Entrar";$("#authForgot").hidden=m==="signup";$("#aPass").autocomplete=m==="signup"?"new-password":"current-password"}
 document.querySelectorAll("[data-am]").forEach(b=>b.onclick=()=>setAuthMode(b.dataset.am));
 $("#authGo").onclick=async()=>{
   const em=$("#aEmail").value.trim(),pw=$("#aPass").value;
+  if(authMode==="signup"&&!$("#aAgree").checked){toast("Para criar a conta, aceite os Termos de uso e a Política de privacidade");return}
   if(!/^\S+@\S+\.\S+$/.test(em)){toast("Digite um e-mail válido");return}
   if(pw.length<6){toast("A senha precisa ter pelo menos 6 caracteres");return}
   $("#authGo").disabled=true;
@@ -1094,7 +1153,7 @@ $("#fSave").onclick=async()=>{
   try{
     const{error}=me()?await sb.from("profiles").update(row).eq("id",uid):await sb.from("profiles").insert({id:uid,...row});
     if(error)throw error;
-    const wasNew=!me();await loadAll();toast(wasNew?"Bem-vindo(a) ao MEU PACE!":"Perfil atualizado");editing=false;show(wasNew?"feed":"me");
+    const wasNew=!me();await loadAll();toast(wasNew?"Bem-vindo(a) ao MEU PACE!":"Perfil atualizado");editing=false;show(wasNew?"feed":"me");if(wasNew)setTimeout(()=>openTour(),400);
   }catch(e){toast("Não deu para salvar: "+(e.message||""))}
   $("#fSave").disabled=false;
 };
@@ -1562,7 +1621,7 @@ $("#repSend").onclick=async()=>{const reason=(document.querySelector('input[name
 async function toggleFollow(id){if(needLogin("Entre para seguir corredores."))return;
   if(isFollowing(id)){follows=follows.filter(f=>!(f.follower===uid&&f.following===id));render();await sb.from("follows").delete().eq("follower",uid).eq("following",id);toast("Você deixou de seguir "+nick(id))}
   else{follows.push({follower:uid,following:id});render();const{error}=await sb.from("follows").insert({follower:uid,following:id});toast(error?"Não deu para seguir agora":"Seguindo "+nick(id))}
-  if($("#personDlg").open&&curPerson)openPerson(curPerson);scheduleReload()}
+  if($("#personDlg").open&&curPerson)openPerson(curPerson);if($("#tourDlg").open){const sc=$(".tsug")?.scrollTop||0;$("#tSlides").innerHTML=tourSlides().join("");paintTour();if($(".tsug"))$(".tsug").scrollTop=sc}scheduleReload()}
 document.addEventListener("click",async e=>{
   const vs=e.target.closest("[data-vsnd]");if(vs){e.stopPropagation();toggleSound();return}
   const sx=e.target.closest("[data-rq],[data-mtab],[data-ntfil],[data-report],[data-repok],[data-repdelpost],[data-covedit]");
@@ -1907,6 +1966,60 @@ function paintVideoComments(animate){
 }
 setInterval(()=>{vcTick++;if(document.hidden)return;if(document.querySelector("[data-vcm]"))paintVideoComments(true)},4000);
 
+/* ---------- termos, privacidade, apagar conta ---------- */
+const DOCS={terms:["Termos de uso",`<h3>1. Sobre o MEU PACE</h3><p>O MEU PACE é uma rede social para corredores de Maracanaú e região, criada por Paulo Diogo. Ao criar uma conta, você concorda com estes termos.</p>
+<h3>2. Sua conta</h3><p>Você é responsável pelo que publica e por manter sua senha segura. Use informações verdadeiras no seu perfil. Menores de 18 anos devem usar o app com autorização dos pais ou responsáveis.</p>
+<h3>3. Regras da comunidade</h3><p>Não é permitido publicar conteúdo ofensivo, discriminatório, violento, sexual, enganoso ou que viole direitos de outras pessoas, nem fazer spam, golpes ou assédio. Também não é permitido registrar treinos falsos para subir no ranking. Conteúdos e perfis que desrespeitem estas regras podem ser removidos, e a conta pode ser suspensa.</p>
+<h3>4. Seu conteúdo</h3><p>As fotos, vídeos, textos e treinos que você publica continuam sendo seus. Ao publicá-los, você permite que o MEU PACE os exiba dentro do app para outros usuários. Publique apenas o que você tem direito de compartilhar, incluindo músicas e imagens de outras pessoas.</p>
+<h3>5. Saúde e segurança</h3><p>O MEU PACE não é um serviço médico. Dados como distância, pace, velocidade e batimentos são estimativas e podem ter erros. Consulte um médico antes de começar ou intensificar treinos e corra sempre com atenção ao trânsito e ao ambiente.</p>
+<h3>6. Disponibilidade</h3><p>O app é oferecido como está e pode passar por mudanças, instabilidades ou interrupções. Recursos podem ser adicionados, alterados ou removidos.</p>
+<h3>7. Encerramento</h3><p>Você pode apagar sua conta a qualquer momento em Perfil > Apagar minha conta.</p>
+<h3>8. Mudanças nestes termos</h3><p>Estes termos podem ser atualizados. Mudanças importantes serão avisadas no app.</p>`],priv:["Política de privacidade",`<h3>1. Quais dados guardamos</h3><p><b>Conta:</b> seu e-mail e senha (a senha é guardada de forma protegida).<br><b>Perfil:</b> apelido, foto, capa, cidade, nível, bio e playlist.<br><b>Atividade:</b> posts, fotos, vídeos, stories, comentários, curtidas, quem você segue e mensagens.<br><b>Treinos:</b> quando você usa o botão Treinar, guardamos o percurso do GPS, distância, tempo, velocidade e batimentos informados.<br><b>No seu aparelho:</b> preferências como som dos vídeos, provas seguidas e stories vistos.</p>
+<h3>2. Para que usamos</h3><p>Para o app funcionar: mostrar seu perfil e publicações, calcular ranking e recordes, enviar notificações e permitir conversas. Não vendemos seus dados e não usamos anúncios.</p>
+<h3>3. O que fica visível</h3><p>Seu perfil, posts, treinos publicados (incluindo o mapa do percurso), stories, comentários e seguidores podem ser vistos por outros usuários e visitantes do app. Mensagens privadas só são vistas por você e pela pessoa da conversa. Dica: evite começar e terminar o treino na porta de casa se não quiser mostrar seu endereço.</p>
+<h3>4. Onde os dados ficam</h3><p>Os dados ficam guardados no Supabase, um serviço de banco de dados na nuvem, em servidores na região de São Paulo. O site é hospedado no GitHub Pages.</p>
+<h3>5. Seus direitos (LGPD)</h3><p>Você pode ver e corrigir seus dados no próprio perfil, apagar publicações e apagar sua conta inteira, o que remove seu perfil, posts, treinos, mensagens, fotos e vídeos. Para outras solicitações sobre seus dados, mande uma mensagem pelo app para o perfil do criador do MEU PACE.</p>
+<h3>6. Segurança</h3><p>Usamos regras de segurança no banco de dados para que cada pessoa só altere o que é dela e as mensagens fiquem privadas. Nenhum sistema é 100% seguro, então use uma senha forte e só sua.</p>
+<h3>7. Mudanças</h3><p>Esta política pode ser atualizada. Mudanças importantes serão avisadas no app.</p>`]};
+function openDoc(k){$("#docTitle").textContent=DOCS[k][0];$("#docBody").innerHTML=DOCS[k][1];$("#docT").setAttribute("aria-pressed",k==="terms");$("#docP").setAttribute("aria-pressed",k==="priv");if(!$("#docDlg").open)$("#docDlg").showModal();$("#docDlg .dbody").scrollTop=0}
+document.addEventListener("click",e=>{const d=e.target.closest("[data-doc]");if(!d)return;e.preventDefault();e.stopPropagation();openDoc(d.dataset.doc)},true);
+$("#delBtn").onclick=()=>{$("#delWord").value="";$("#delDlg").showModal()};
+$("#delGo").onclick=async()=>{
+  if($("#delWord").value.trim().toUpperCase()!=="APAGAR"){toast("Digite APAGAR para confirmar");return}
+  $("#delGo").disabled=true;$("#delGo").textContent="Apagando…";
+  try{const{data}=await sb.storage.from("media").list(uid,{limit:1000});if(data&&data.length)await sb.storage.from("media").remove(data.map(f=>uid+"/"+f.name))}catch(e){}
+  const{error}=await sb.rpc("delete_my_account");
+  $("#delGo").disabled=false;$("#delGo").textContent="Apagar minha conta para sempre";
+  if(error){toast(/delete_my_account|function/i.test(error.message)?"Falta ativar essa opção no banco: rode o código SQL":"Não deu para apagar a conta. Tente de novo.");return}
+  $("#delDlg").close();try{["meupace:races","meupace:seen","meupace:som","meupace:tour"].forEach(k=>localStorage.removeItem(k))}catch(e){}
+  await sb.auth.signOut();toast("Sua conta foi apagada. Obrigado por ter corrido com a gente 💚");setTimeout(()=>location.reload(),1800);
+};
+
+/* ---------- tour do primeiro acesso ---------- */
+const TI={hi:MARK_BIG,run:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="4.5" r="2"/><path d="M8 21l3-6 3 2v5"/><path d="M6 12l3-4 4 1 3 3 3 1"/><path d="M11 15l2-5"/></svg>',
+  post:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>',
+  ppl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c1-3.5 3.5-5.5 6.5-5.5s5.5 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.3 0 4 1.5 4.7 4"/></svg>'};
+let tourI=0;
+function tourSuggest(){return Object.keys(profiles).filter(k=>k!==uid&&!isBlockedId(k)).sort((a,b)=>(isCreator(b)-isCreator(a))||(hasBadge(b)-hasBadge(a))||((profiles[b].city===myCity())-(profiles[a].city===myCity()))||(followersOf(b).length-followersOf(a).length)).slice(0,6)}
+function tourSlides(){
+  const sug=tourSuggest();
+  return [
+    `<div class="tslide"><div class="tic">${TI.hi.replace('style="width:100%;height:100%"','style="width:84px;height:84px"')}</div><h2>Bem-vindo ao <em>MEU PACE</em></h2><p>A rede social de quem corre em ${esc(myCity())} e região. Em 4 passos você já sai correndo.</p></div>`,
+    `<div class="tslide"><div class="tic">${TI.run}</div><h2>Treine com <em>GPS</em></h2><p>Toque no botão verde <b>Treinar</b> no meio da barra de baixo.</p><ul><li>📍 Distância, pace e velocidade ao vivo</li><li>🗺️ Mapa e replay 3D da sua corrida</li><li>🏆 Recordes pessoais e <b>ranking do mês</b></li></ul></div>`,
+    `<div class="tslide"><div class="tic">${TI.post}</div><h2>Poste e <em>interaja</em></h2><ul><li>📸 Fotos e vídeos dos seus treinos</li><li>⏱️ Stories que somem em 24 horas</li><li>💬 Comentários, curtidas e mensagens</li><li>🔔 Avisos de provas da sua região</li></ul></div>`,
+    `<div class="tslide"><div class="tic">${TI.ppl}</div><h2>Siga a <em>galera</em></h2><p>Comece seguindo alguns corredores para o seu feed ganhar vida.</p><div class="tsug">${sug.length?sug.map(k=>`<div class="person">${avHtml(k)}<div class="info"><div class="name">${nm(k)}</div><small>${esc(profiles[k].city||"")}, ${followersOf(k).length} seguidores</small></div>${followBtn(k)}</div>`).join(""):`<div class="empty">Você é um dos primeiros! Convide a galera do seu grupo de corrida.</div>`}</div></div>`];
+}
+function paintTour(){const n=$("#tSlides").children.length;[...$("#tSlides").children].forEach(el=>el.style.transform=`translateX(${-100*tourI}%)`);
+  $("#tDots").innerHTML=Array.from({length:n},(_,i)=>`<i class="${i===tourI?"on":""}"></i>`).join("");$("#tourNext").textContent=tourI===n-1?"Começar a usar":"Próximo"}
+function openTour(){tourI=0;$("#tSlides").innerHTML=tourSlides().join("");if(!$("#tourDlg").open)$("#tourDlg").showModal();paintTour()}
+function closeTour(){try{localStorage.setItem("meupace:tour","1")}catch(e){}if($("#tourDlg").open)$("#tourDlg").close();render()}
+$("#tourNext").onclick=()=>{if(tourI>=$("#tSlides").children.length-1)return closeTour();tourI++;paintTour()};
+$("#tourSkip").onclick=closeTour;
+$("#tourBtn").onclick=openTour;
+(()=>{let x0=null;const el=$("#tSlides");el.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+  el.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)<50)return;
+    const n=el.children.length;if(dx<0&&tourI<n-1)tourI++;else if(dx>0&&tourI>0)tourI--;paintTour()},{passive:true})})();
+
 /* ---------- render geral ---------- */
 function render(){
   $("#meAv").outerHTML=me()&&me().photo?`<div class="av" id="meAv"><img src="${esc(me().photo)}" alt=""></div>`:`<div class="av" id="meAv">${esc(me()?me().nick[0].toUpperCase():"?")}</div>`;
@@ -1930,6 +2043,8 @@ async function onSession(session){
   await loadAll();
   if(uid&&!me()){openForm(false);return}
   show(location.hash.slice(1)||"feed");
+  let seen=true;try{seen=!!localStorage.getItem("meupace:tour")}catch(e){}
+  if(uid&&me()&&!seen)setTimeout(()=>openTour(),700);
 }
 (async()=>{
   if(!sb){$("#setup").hidden=false;show("feed");return}
