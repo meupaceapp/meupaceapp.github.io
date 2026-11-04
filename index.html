@@ -827,7 +827,9 @@ const VB=`<svg class="vb" viewBox="0 0 24 24" aria-label="Verificado: criador do
 const isCreator=id=>!!(profiles[id]&&profiles[id].is_creator);
 const iAmCreator=()=>isCreator(uid);
 function nick(id){return (profiles[id]&&profiles[id].nick)||"Corredor(a)"}
-function nm(id){return esc(nick(id))+(isCreator(id)||(typeof isTop==="function"&&isTop(id))?VB:"")}
+const isVerified=id=>!!(profiles[id]&&profiles[id].verified);
+const hasBadge=id=>isCreator(id)||isVerified(id)||(typeof isTop==="function"&&isTop(id));
+function nm(id){return esc(nick(id))+(hasBadge(id)?VB:"")}
 function activeStories(id){return stories.filter(s=>s.author===id&&Date.now()-T(s.created_at)<DAY).sort((a,b)=>T(a.created_at)-T(b.created_at))}
 function avHtml(id,cls=""){const p=profiles[id];const n=(p&&p.nick)||"?";
   const inner=p&&p.photo?`<div class="av ${cls}"><img src="${esc(p.photo)}" alt="" loading="lazy"></div>`:`<div class="av ${cls}">${esc(n[0].toUpperCase())}</div>`;
@@ -1092,7 +1094,7 @@ function renderPeople(){
   if(peopleMode==="following")ids=ids.filter(isFollowing);
   if(peopleMode==="followers"){const fs=followersOf(uid);ids=ids.filter(k=>fs.includes(k))}
   if(qv)ids=ids.filter(k=>profiles[k].nick.toLowerCase().includes(qv));
-  ids.sort((a,b)=>(isCreator(b)-isCreator(a))||((profiles[b].city===myCity())-(profiles[a].city===myCity()))||(T(profiles[b].created_at)-T(profiles[a].created_at)));
+  ids.sort((a,b)=>(isCreator(b)-isCreator(a))||(isVerified(b)-isVerified(a))||((profiles[b].city===myCity())-(profiles[a].city===myCity()))||(T(profiles[b].created_at)-T(profiles[a].created_at)));
   {const tot=Object.keys(profiles).length;$("#peopleCount").textContent=tot+(tot===1?" corredor":" corredores")+" no MEU PACE. Siga para ver os treinos no seu feed.";}
   $("#rankBox").innerHTML=rankingHtml();
   $("#peopleList").innerHTML=ids.length?ids.map(k=>{const p=profiles[k],n=followersOf(k).length;return `<div class="person">${avHtml(k)}<div class="info" data-person="${esc(k)}"><div class="name">${nm(k)}<span class="lvl">${esc(p.level||"")}</span></div><small>${esc(p.city||"")}, ${n} ${n===1?"seguidor":"seguidores"}</small></div>${followBtn(k)}</div>`}).join("")
@@ -1107,9 +1109,10 @@ function profileHtml(id){
   const p=profiles[id]||{};const fs=followersOf(id).length,fg=followingOf(id).length,st=statsOf(id);
   const theirPosts=posts.filter(x=>x.author===id);
   return `<div class="pcover">${cover("perfil"+id,SERRA.includes(p.city)?"serra":BEACH.includes(p.city)?"praia":"cidade","",null)}</div>
-   <div class="phead">${activeStories(id).length?`<button class="avbtn" data-story="${esc(id)}" aria-label="Ver stories">${avHtml(id)}</button>`:avHtml(id)}<div style="padding-bottom:6px;min-width:0"><h2>${nm(id)}</h2>${isCreator(id)?`<div class="pmeta" style="color:var(--neon);font-weight:700">Criador do MEU PACE</div>`:""}${isTop(id)?`<div class="toplabel">${MEDAL[topPos(id)-1]} Top ${topPos(id)} do mês em quilômetros</div>`:""}<div class="pmeta">${esc(p.city||"")}, CE <span class="lvl">${esc(p.level||"")}</span></div></div></div>
+   <div class="phead">${activeStories(id).length?`<button class="avbtn" data-story="${esc(id)}" aria-label="Ver stories">${avHtml(id)}</button>`:avHtml(id)}<div style="padding-bottom:6px;min-width:0"><h2>${nm(id)}</h2>${isCreator(id)?`<div class="pmeta" style="color:var(--neon);font-weight:700">Criador do MEU PACE</div>`:""}${isVerified(id)&&!isCreator(id)?`<div class="toplabel">Verificado pelo MEU PACE</div>`:""}${isTop(id)?`<div class="toplabel">${MEDAL[topPos(id)-1]} Top ${topPos(id)} do mês em quilômetros</div>`:""}<div class="pmeta">${esc(p.city||"")}, CE <span class="lvl">${esc(p.level||"")}</span></div></div></div>
    <div style="padding:0 4px">${p.bio?`<p class="pbio">${esc(p.bio)}</p>`:""}
    <div class="follows"><button data-flist="followers|${esc(id)}"><b>${fs}</b><span>${fs===1?"seguidor":"seguidores"}</span></button><button data-flist="following|${esc(id)}"><b>${fg}</b><span>seguindo</span></button><div class="pacts">${id!==uid?`<button class="btn sm on" data-msg="${esc(id)}">Mensagem</button>`:""}${followBtn(id)}</div></div>
+   ${iAmCreator()&&id!==uid&&!isCreator(id)?`<button class="btn sm ${isVerified(id)?"on":""}" data-verify="${esc(id)}" style="margin-bottom:10px">${isVerified(id)?"Remover selo verificado":"✓ Dar selo verificado"}</button>`:""}
    ${id===uid?`<button class="btn ghost" data-addstory="1" style="margin-bottom:6px">${activeStories(uid).length?"Adicionar outro story":"Postar story (24h)"}</button>`:""}
    ${p.playlist&&musicHost(p.playlist)?`<a class="plbtn" href="${esc(p.playlist)}" target="_blank" rel="noopener">🎧 Ouvir a playlist ${id===uid?"de corrida":"de "+esc(p.nick)}</a>`:""}
    ${prHtml(id)}
@@ -1303,6 +1306,9 @@ async function toggleFollow(id){if(needLogin("Entre para seguir corredores."))re
   else{follows.push({follower:uid,following:id});render();const{error}=await sb.from("follows").insert({follower:uid,following:id});toast(error?"Não deu para seguir agora":"Seguindo "+nick(id))}
   if($("#personDlg").open&&curPerson)openPerson(curPerson);scheduleReload()}
 document.addEventListener("click",async e=>{
+  const vf=e.target.closest("[data-verify]");if(vf){const id=vf.dataset.verify,val=!isVerified(id);vf.disabled=true;const{error}=await sb.rpc("set_verified",{target:id,val});vf.disabled=false;
+    if(error){toast(/set_verified|function/i.test(error.message)?"Falta ativar o selo no banco: rode o código SQL":"Não deu para mudar o selo");return}
+    profiles[id].verified=val;toast(val?nick(id)+" agora tem o selo verificado ✓":"Selo removido de "+nick(id));render();if($("#personDlg").open)openPerson(id);return}
   const rr=e.target.closest("[data-replay],[data-rank],[data-goto]");if(rr){const d=rr.dataset;if(d.replay){const r=runsById[d.replay];if(r)openReplay(r.route,{km:Number(r.km),secs:r.secs,who:r.author})}else if(d.rank){rankMode=d.rank;renderPeople()}else if(d.goto){show(d.goto)}return}
   const t=e.target.closest("[data-fol],[data-reg],[data-dist],[data-follow],[data-pm],[data-like],[data-cmt],[data-csend],[data-del],[data-cdel],[data-pin],[data-story],[data-msg],[data-addstory],[data-thread],[data-flist],[data-ntf],[data-person]");if(!t)return;
   const d=t.dataset;
@@ -1621,7 +1627,7 @@ $("#rpRec").onclick=()=>{
 
 /* ---------- comentários dentro dos vídeos ---------- */
 let vcTick=0;
-function vcItem(c){const p=profiles[c.author]||{};return `<div class="vc">${avHtml(c.author,"noring")}<span class="t"><b>${esc(nick(c.author))}</b>${isCreator(c.author)||isTop(c.author)?VB:""}${esc(c.text)}</span></div>`}
+function vcItem(c){const p=profiles[c.author]||{};return `<div class="vc">${avHtml(c.author,"noring")}<span class="t"><b>${esc(nick(c.author))}</b>${hasBadge(c.author)?VB:""}${esc(c.text)}</span></div>`}
 function paintVideoComments(animate){
   document.querySelectorAll("[data-vcm]").forEach(el=>{
     const L=comments[el.dataset.vcm]||[];if(!L.length){el.innerHTML="";return}
