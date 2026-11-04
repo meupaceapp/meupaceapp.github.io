@@ -1,0 +1,14 @@
+{
+  "name": "MEU PACE",
+  "short_name": "MEU PACE",
+  "description": "A rede social de quem corre em Maracanaú e região",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#141414",
+  "theme_color": "#141414",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
