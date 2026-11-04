@@ -181,6 +181,86 @@ button.avbtn{background:none;border:0;padding:0;border-radius:50%;cursor:pointer
 .guest{margin:14px 0 0;background:rgba(255,225,77,.08);border:1px solid rgba(255,225,77,.5);border-radius:14px;padding:12px 14px}
 .guest b{color:var(--warn);font-size:15px}
 .guest p{margin:4px 0 0;font-size:14px;color:var(--ink)}
+
+/* ===== treino, ranking, 3D ===== */
+nav.tabs button.tab-run{color:var(--ink)}
+nav.tabs button.tab-run .rbub{width:52px;height:52px;margin-top:-22px;border-radius:50%;background:var(--neon);color:#000;display:grid;place-items:center;box-shadow:0 0 18px rgba(57,255,20,.55);border:4px solid #141414}
+nav.tabs button.tab-run .rbub svg{width:26px;height:26px}
+nav.tabs button.tab-run[aria-current="page"]{color:var(--neon)}
+nav.tabs button.tab-run[aria-current="page"]::before{display:none}
+#bellBtn .badge{top:-4px;left:auto;right:-4px}
+.run-map{position:relative;height:260px;border-radius:18px;overflow:hidden;border:1px solid var(--line);margin:14px 0;background:#0c0c0c}
+#runMap{position:absolute;inset:0}
+.me-dot{width:18px;height:18px;border-radius:50%;background:var(--neon);border:3px solid #000;box-shadow:0 0 0 4px rgba(57,255,20,.35),0 0 16px var(--neon)}
+.gps{font-size:14px;color:var(--warn);margin:4px 0 0}
+.gps.ok{color:var(--neon)}
+.bigstart{width:100%;height:76px;border-radius:999px;border:0;background:var(--neon);color:#000;font-family:var(--disp);font-weight:900;font-size:34px;font-style:italic;letter-spacing:.5px;cursor:pointer;box-shadow:0 0 30px rgba(57,255,20,.45);margin-top:6px}
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.live-grid div{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+.live-grid span{font-size:12px;color:var(--mute);display:block}
+.live-grid b{font-family:var(--disp);font-weight:900;font-size:40px;line-height:1}
+.live-grid .main{grid-column:1/-1;text-align:center}
+.live-grid .main b{font-size:84px;color:var(--neon);text-shadow:0 0 20px rgba(57,255,20,.4)}
+.live-grid .hr b{color:#ff3b5c}
+#runLive.paused .main b{color:var(--warn);text-shadow:none}
+.live-acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.live-acts button{height:58px;border-radius:999px;font-weight:800;font-size:18px;cursor:pointer;border:0}
+#runPause{background:var(--s2);color:var(--ink);border:1px solid var(--line)}
+#runStop{background:#ff3b5c;color:#fff}
+body.running header,body.running #storyBar{}
+.split{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--line);font-size:15px}
+.split b{color:var(--neon)}
+.rsvg{width:100%;display:block;border-radius:14px;border:1px solid var(--line)}
+.runbox{margin:10px 0 4px}
+.runbox .btn{margin-top:8px}
+.runmeta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--mute);margin-top:6px}
+.runmeta b{color:var(--ink)}
+.check{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:15px}
+.check input{width:22px;height:22px;accent-color:var(--neon)}
+.rank{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:14px;margin:6px 0 18px}
+.rank-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rank-h b{font-size:17px}
+.seg.sm{margin:0;padding:3px;border-radius:10px}
+.seg.sm button{padding:6px 12px;font-size:13px}
+.podium{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:end;margin:16px 0 8px}
+.pod{background:none;border:0;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;position:relative;padding:0}
+.pod .av{width:56px;height:56px;font-size:24px}
+.pod.p1 .av{width:72px;height:72px;font-size:30px;border:3px solid var(--neon);box-shadow:0 0 18px rgba(57,255,20,.5)}
+.pod .md{font-size:22px;line-height:1;margin-top:-14px}
+.pod .pn{font-size:13px;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pod b{font-family:var(--disp);font-weight:900;font-size:22px;color:var(--neon)}
+.pod .bar{width:100%;border-radius:10px 10px 0 0;background:linear-gradient(rgba(57,255,20,.35),rgba(57,255,20,.05));display:block}
+.pod.p1 .bar{height:64px}.pod.p2 .bar{height:44px}.pod.p3 .bar{height:30px}
+.rk{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;border-top:1px solid var(--line);padding:9px 2px;color:var(--ink);cursor:pointer;text-align:left}
+.rk .pos{width:22px;font-weight:800;color:var(--mute)}
+.rk .av{width:34px;height:34px;font-size:15px}
+.rk .pn{flex:1;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk b{font-family:var(--disp);font-weight:900;font-size:20px}
+.topstrip{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:12px 14px;margin:14px 0 4px}
+.ts-h{display:flex;justify-content:space-between;align-items:center}
+.ts-h button{background:none;border:0;color:var(--neon);font-weight:700;cursor:pointer}
+.ts-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.ts{background:none;border:0;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;position:relative}
+.ts .av{width:54px;height:54px;font-size:22px}
+.ts .md{position:absolute;top:36px;right:calc(50% - 34px);font-size:18px}
+.ts .pn{font-size:13px;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ts b{font-size:13px;color:var(--neon)}
+.toplabel{color:var(--neon);font-weight:700;font-size:14px;margin-top:2px}
+dialog.rp{width:100vw;max-width:none;height:100dvh;max-height:100dvh;border:0;border-radius:0;padding:0;background:#000}
+#rpMap{position:absolute;inset:0}
+.rp-top{position:absolute;left:0;right:0;top:0;z-index:3;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px 30px;background:linear-gradient(rgba(0,0,0,.75),transparent);display:flex;align-items:center;gap:10px}
+.rp-top .who{display:flex;align-items:center;gap:8px;flex:1;font-weight:700;min-width:0}
+.rp-top .av{width:34px;height:34px;font-size:15px}
+.rp-top button{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:7px 14px;font-weight:700;cursor:pointer}
+.rp-hud{position:absolute;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 78px);z-index:3;display:flex;gap:10px;justify-content:center}
+.rp-hud div{background:rgba(0,0,0,.65);border:1px solid rgba(57,255,20,.45);border-radius:14px;padding:8px 16px;text-align:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.rp-hud b{font-family:var(--disp);font-weight:900;font-size:36px;color:var(--neon);display:block;line-height:1}
+.rp-hud span{font-size:12px;color:#ccc}
+.rp-acts{position:absolute;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rp-acts button{height:50px;border-radius:999px;font-weight:800;font-size:16px;cursor:pointer;border:0}
+#rpAgain{background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.35)}
+#rpRec{background:var(--neon);color:#000}
+.maplibregl-ctrl-attrib{font-size:10px}
 /* hero corredor */
 .hero{position:relative;margin:16px 0 4px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(120% 90% at 85% 10%,rgba(57,255,20,.18),transparent 60%),#0f0f0f;min-height:210px;padding:22px 20px}
 .hero h2{margin:0;font-size:52px;max-width:60%}
@@ -342,6 +422,8 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
 .toast.on{opacity:1}
 .view[hidden],[hidden]{display:none!important}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -354,7 +436,7 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
 
 <header><div class="in">
   <h1 class="logo"><svg class="logo-mark" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="118" fill="#1b1b1b"/><g transform="skewX(-10) translate(46 0)"><path d="M40 150 L92 150 M20 206 L82 206 M40 262 L76 262" stroke="#39ff14" stroke-opacity=".55" stroke-width="22" stroke-linecap="round"/><path d="M150 382 L150 150 L232 286 L300 118 L348 382 L382 270 L440 270" fill="none" stroke="#39ff14" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/></g></svg>MEU <b>PACE</b></h1>
-  <div class="hbtns"><button class="hbtn" id="msgBtn" aria-label="Mensagens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-6.5A8 8 0 1 1 21 12z"/></svg><span class="badge" id="msgBadge" hidden>0</span></button><button class="me-btn" id="meBtn" aria-label="Meu perfil"><div class="av" id="meAv">?</div></button></div>
+  <div class="hbtns"><button class="hbtn" id="bellBtn" aria-label="Avisos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span class="badge" id="badge" hidden>0</span></button><button class="hbtn" id="msgBtn" aria-label="Mensagens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-6.5A8 8 0 1 1 21 12z"/></svg><span class="badge" id="msgBadge" hidden>0</span></button><button class="me-btn" id="meBtn" aria-label="Meu perfil"><div class="av" id="meAv">?</div></button></div>
 </div></header>
 
 <main class="wrap">
@@ -382,6 +464,7 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <!-- FEED -->
   <section class="view" id="v-feed">
     <div class="stories" id="storyBar" aria-label="Stories" hidden></div>
+    <div id="topStrip"></div>
     <div class="carousel" aria-roledescription="carrossel" aria-label="Motivação">
       <div class="track" id="track">
         <div class="slide" aria-label="Vídeo de corrida"><video id="heroVid" src="corrida.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="auto"></video><div class="shade"></div>
@@ -424,6 +507,7 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
   <section class="view" id="v-people" hidden>
     <h2>A galera</h2>
     <p class="sub" id="peopleCount">Corredores no MEU PACE</p>
+    <div id="rankBox"></div>
     <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="pSearch" placeholder="Buscar por nome" aria-label="Buscar corredor"></div>
     <div class="chips" id="peopleChips"></div>
     <div id="peopleList"></div>
@@ -434,6 +518,44 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
     <h2>Seus avisos</h2>
     <p class="sub">Quem te seguiu, curtiu e comentou, mais a contagem das suas provas.</p>
     <div id="alertList"></div>
+  </section>
+
+  <!-- TREINAR -->
+  <section class="view" id="v-run" hidden>
+    <div id="runIdle">
+      <h2>Bora correr?</h2>
+      <p class="sub">O MEU PACE registra seu percurso pelo GPS, com distância, tempo, pace e velocidade. No fim, você vê sua corrida num mapa 3D.</p>
+      <div id="runMapIdleSlot"><div class="run-map" id="runMapWrap"><div id="runMap"></div></div></div>
+      <p class="gps" id="gpsState">Procurando sinal do GPS…</p>
+      <button class="bigstart" id="runStart">INICIAR CORRIDA</button>
+      <button class="btn ghost" id="hrBtn" hidden>❤ Conectar monitor cardíaco</button>
+      <p class="note">Mantenha o MEU PACE aberto e a tela ligada durante a corrida: com a tela bloqueada, o celular pausa o GPS do navegador.</p>
+    </div>
+    <div id="runLive" hidden>
+      <div class="live-grid">
+        <div class="main"><span>Distância (km)</span><b id="rKm">0,00</b></div>
+        <div><span>Tempo</span><b id="rTime">0:00</b></div>
+        <div><span>Pace médio /km</span><b id="rPace">–</b></div>
+        <div><span>Velocidade km/h</span><b id="rCur">0,0</b></div>
+        <div class="hr"><span>Batimentos</span><b id="rHr">–</b></div>
+      </div>
+      <div id="runMapLiveSlot"></div>
+      <div class="live-acts"><button id="runPause">Pausar</button><button id="runStop">Finalizar</button></div>
+    </div>
+    <div id="runDone" hidden>
+      <h2>Corrida concluída! 🏁</h2>
+      <div id="sumRoute"></div>
+      <div class="big-stats" id="sumStats"></div>
+      <button class="btn" id="sumReplay">▶ Ver corrida em 3D</button>
+      <div id="sumHr"></div>
+      <div id="hrManual" class="card"><b>Batimentos do seu relógio (opcional)</b>
+        <div class="row"><label class="f">Média (bpm)<input id="sAvgHr" inputmode="numeric" placeholder="150"></label><label class="f">Máximo (bpm)<input id="sMaxHr" inputmode="numeric" placeholder="175"></label></div></div>
+      <div id="sumSplits"></div>
+      <div class="card"><textarea id="sText" maxlength="500" placeholder="Conte como foi a corrida (opcional)"></textarea>
+        <label class="check"><input type="checkbox" id="sPublish" checked> Publicar no feed</label>
+        <button class="btn" id="sumSave">Salvar treino</button>
+        <button class="btn ghost" id="sumDiscard" style="border-color:var(--line);color:var(--mute)">Descartar</button></div>
+    </div>
   </section>
 
   <!-- MENSAGENS -->
@@ -457,11 +579,16 @@ dialog .x button{background:rgba(255,255,255,.08);border:0;border-radius:999px;w
 <nav class="tabs" id="tabs" aria-label="Seções"><div class="in">
   <button data-v="feed" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Feed</button>
   <button data-v="races"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Provas</button>
+  <button data-v="run" class="tab-run"><span class="rbub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="4.5" r="2"/><path d="M8 21l3-6 3 2v5"/><path d="M6 12l3-4 4 1 3 3 3 1"/><path d="M11 15l2-5"/></svg></span>Treinar</button>
   <button data-v="people"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c1-3.5 3.5-5.5 6.5-5.5s5.5 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.3 0 4 1.5 4.7 4"/></svg>Galera</button>
-  <button data-v="alerts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>Avisos<span class="badge" id="badge" hidden>0</span></button>
   <button data-v="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Perfil</button>
 </div></nav>
 
+<dialog class="rp" id="replayDlg"><div id="rpMap"></div>
+  <div class="rp-top"><div class="who" id="rpWho"></div><button id="rpClose">Fechar</button></div>
+  <div class="rp-hud" id="rpHud"><div><b id="rpKm">0 km</b><span>distância</span></div><div><b id="rpTime">0:00</b><span>tempo</span></div></div>
+  <div class="rp-acts"><button id="rpAgain">↻ Repetir</button><button id="rpRec">Gravar vídeo</button></div>
+</dialog>
 <dialog id="personDlg"><div class="x"><button aria-label="Fechar" onclick="this.closest('dialog').close()">×</button></div><div class="dbody" id="personBody"></div></dialog>
 <dialog class="sv" id="storyDlg"><div class="sv-wrap">
   <div class="sv-media" id="svMedia"></div>
@@ -623,7 +750,7 @@ const VB=`<svg class="vb" viewBox="0 0 24 24" aria-label="Verificado: criador do
 const isCreator=id=>!!(profiles[id]&&profiles[id].is_creator);
 const iAmCreator=()=>isCreator(uid);
 function nick(id){return (profiles[id]&&profiles[id].nick)||"Corredor(a)"}
-function nm(id){return esc(nick(id))+(isCreator(id)?VB:"")}
+function nm(id){return esc(nick(id))+(isCreator(id)||(typeof isTop==="function"&&isTop(id))?VB:"")}
 function activeStories(id){return stories.filter(s=>s.author===id&&Date.now()-T(s.created_at)<DAY).sort((a,b)=>T(a.created_at)-T(b.created_at))}
 function avHtml(id,cls=""){if(activeStories(id).length&&!cls.includes("noring"))cls+=" ring";const p=profiles[id];const n=(p&&p.nick)||"?";
   return p&&p.photo?`<div class="av ${cls}"><img src="${esc(p.photo)}" alt="" loading="lazy"></div>`:`<div class="av ${cls}">${esc(n[0].toUpperCase())}</div>`}
@@ -650,6 +777,7 @@ async function loadAll(){
     ids.length?q(sb.from("post_likes").select("post_id,user_id").in("post_id",ids).limit(20000)):[],
     ids.length?q(sb.from("comments").select("*").in("post_id",ids).order("created_at",{ascending:true}).limit(5000)):[],
     sids.length?q(sb.from("story_likes").select("story_id,user_id").in("story_id",sids).limit(10000)):[]]);
+  await loadRuns(po);
   likes={};pl.forEach(l=>(likes[l.post_id]=likes[l.post_id]||[]).push(l.user_id));
   comments={};cm.forEach(c=>(comments[c.post_id]=comments[c.post_id]||[]).push(c));
   storyLikes={};sl.forEach(l=>(storyLikes[l.story_id]=storyLikes[l.story_id]||[]).push(l.user_id));
@@ -664,7 +792,7 @@ async function loadAll(){
 let reloadT=0;function scheduleReload(){clearTimeout(reloadT);reloadT=setTimeout(async()=>{await loadAll();render();if($("#storyDlg").open)paintStoryActs();if($("#chatDlg").open)paintChat()},500)}
 
 /* ---------- navegação ---------- */
-const VIEWS=["feed","races","people","alerts","me","msgs"];
+const VIEWS=["feed","races","run","people","alerts","me","msgs"];
 function show(v){
   if(v!=="onb"&&!VIEWS.includes(v))v="feed";
   if(uid&&loaded&&!me()&&v!=="onb"){openForm(false);return}
@@ -678,6 +806,7 @@ function show(v){
 document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{if(b.dataset.v==="me"&&!uid){openAuth("Entre ou crie sua conta para ter seu perfil.");return}show(b.dataset.v)});
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(VIEWS.includes(h)&&h!==current)show(h)});
 $("#meBtn").onclick=()=>{if(!uid)return openAuth("Entre ou crie sua conta para ter seu perfil.");me()?show("me"):openForm(false)};
+$("#bellBtn").onclick=()=>show("alerts");
 $("#msgBtn").onclick=()=>{if(needLogin("Entre para conversar com a galera."))return;show("msgs")};
 
 /* ---------- conta (entrar / criar) ---------- */
@@ -821,7 +950,7 @@ function postHtml(p){
     ${p.pinned?`<div class="pin">${VB.replace('class="vb"','class="vb" style="margin:0"')}Fixado pelo criador</div>`:""}
     <button class="who" data-person="${esc(p.author)}">${avHtml(p.author)}<div><div class="name">${nm(p.author)}</div><div class="when">${ago(T(p.created_at))}${p.city?" em "+esc(p.city):""}</div></div></button>
     ${Number(p.km)?`<div class="stats"><div><span>Distância</span><b>${kmTxt(Number(p.km))} km</b></div><div><span>Tempo</span><b>${fmtDur(p.secs)}</b></div><div class="pace"><span>Pace</span><b>${fmtPace(p.secs,Number(p.km))}</b></div></div>`:""}
-    ${p.text?`<p>${esc(p.text)}</p>`:""}
+    ${p.text?`<p>${esc(p.text)}</p>`:""}${p.run_id?runBlockHtml(runsById[p.run_id]):""}
     ${p.video?`<div data-vid="${esc(p.video)}"></div>`:""}${p.photo?`<img class="pimg" src="${esc(p.photo)}" alt="Foto do treino de ${esc(nick(p.author))}" loading="lazy">`:""}
     <div class="bar">
       <button data-like="${esc(p.id)}" aria-pressed="${liked}"><svg viewBox="0 0 24 24" fill="${liked?"currentColor":"none"}" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Bora! ${L.length||""}</button>
@@ -856,6 +985,7 @@ function renderPeople(){
   if(qv)ids=ids.filter(k=>profiles[k].nick.toLowerCase().includes(qv));
   ids.sort((a,b)=>(isCreator(b)-isCreator(a))||((profiles[b].city===myCity())-(profiles[a].city===myCity()))||(T(profiles[b].created_at)-T(profiles[a].created_at)));
   {const tot=Object.keys(profiles).length;$("#peopleCount").textContent=tot+(tot===1?" corredor":" corredores")+" no MEU PACE. Siga para ver os treinos no seu feed.";}
+  $("#rankBox").innerHTML=rankingHtml();
   $("#peopleList").innerHTML=ids.length?ids.map(k=>{const p=profiles[k],n=followersOf(k).length;return `<div class="person">${avHtml(k)}<div class="info" data-person="${esc(k)}"><div class="name">${nm(k)}<span class="lvl">${esc(p.level||"")}</span></div><small>${esc(p.city||"")}, ${n} ${n===1?"seguidor":"seguidores"}</small></div>${followBtn(k)}</div>`}).join("")
     :`<div class="empty">${qv?"Ninguém com esse nome.":"Ninguém aqui ainda. Convide a galera do seu grupo de corrida!"}</div>`;
 }
@@ -868,7 +998,7 @@ function profileHtml(id){
   const p=profiles[id]||{};const fs=followersOf(id).length,fg=followingOf(id).length,st=statsOf(id);
   const theirPosts=posts.filter(x=>x.author===id);
   return `<div class="pcover">${cover("perfil"+id,SERRA.includes(p.city)?"serra":BEACH.includes(p.city)?"praia":"cidade","",null)}</div>
-   <div class="phead">${activeStories(id).length?`<button class="avbtn" data-story="${esc(id)}" aria-label="Ver stories">${avHtml(id)}</button>`:avHtml(id)}<div style="padding-bottom:6px;min-width:0"><h2>${nm(id)}</h2>${isCreator(id)?`<div class="pmeta" style="color:var(--neon);font-weight:700">Criador do MEU PACE</div>`:""}<div class="pmeta">${esc(p.city||"")}, CE <span class="lvl">${esc(p.level||"")}</span></div></div></div>
+   <div class="phead">${activeStories(id).length?`<button class="avbtn" data-story="${esc(id)}" aria-label="Ver stories">${avHtml(id)}</button>`:avHtml(id)}<div style="padding-bottom:6px;min-width:0"><h2>${nm(id)}</h2>${isCreator(id)?`<div class="pmeta" style="color:var(--neon);font-weight:700">Criador do MEU PACE</div>`:""}${isTop(id)?`<div class="toplabel">${MEDAL[topPos(id)-1]} Top ${topPos(id)} do mês em quilômetros</div>`:""}<div class="pmeta">${esc(p.city||"")}, CE <span class="lvl">${esc(p.level||"")}</span></div></div></div>
    <div style="padding:0 4px">${p.bio?`<p class="pbio">${esc(p.bio)}</p>`:""}
    <div class="follows"><button data-flist="followers|${esc(id)}"><b>${fs}</b><span>${fs===1?"seguidor":"seguidores"}</span></button><button data-flist="following|${esc(id)}"><b>${fg}</b><span>seguindo</span></button><div class="pacts">${id!==uid?`<button class="btn sm on" data-msg="${esc(id)}">Mensagem</button>`:""}${followBtn(id)}</div></div>
    ${id===uid?`<button class="btn ghost" data-addstory="1" style="margin-bottom:6px">${activeStories(uid).length?"Adicionar outro story":"Postar story (24h)"}</button>`:""}
@@ -1053,6 +1183,7 @@ async function toggleFollow(id){if(needLogin("Entre para seguir corredores."))re
   else{follows.push({follower:uid,following:id});render();const{error}=await sb.from("follows").insert({follower:uid,following:id});toast(error?"Não deu para seguir agora":"Seguindo "+nick(id))}
   if($("#personDlg").open&&curPerson)openPerson(curPerson);scheduleReload()}
 document.addEventListener("click",async e=>{
+  const rr=e.target.closest("[data-replay],[data-rank],[data-goto]");if(rr){const d=rr.dataset;if(d.replay){const r=runsById[d.replay];if(r)openReplay(r.route,{km:Number(r.km),secs:r.secs,who:r.author})}else if(d.rank){rankMode=d.rank;renderPeople()}else if(d.goto){show(d.goto)}return}
   const t=e.target.closest("[data-fol],[data-reg],[data-dist],[data-follow],[data-pm],[data-like],[data-cmt],[data-csend],[data-del],[data-cdel],[data-pin],[data-story],[data-msg],[data-addstory],[data-thread],[data-flist],[data-ntf],[data-person]");if(!t)return;
   const d=t.dataset;
   if(d.fol){e.stopPropagation();toggleFollow(d.fol)}
@@ -1079,11 +1210,258 @@ document.addEventListener("click",async e=>{
 });
 function refreshDlgPost(pid){if(!$("#personDlg").open)return;if(curPerson){openPerson(curPerson);return}const p=posts.find(x=>x.id===pid);if(p&&$("#personBody").querySelector(`[data-like="${CSS.escape(pid)}"]`)){$("#personBody").innerHTML=`<div class="section-t" style="margin-top:0">Treino</div>`+postHtml(p);mountVideos($("#personBody"))}}
 
+/* ===================== TREINOS, MAPA 3D E RANKING ===================== */
+let rankRuns=[],runsById={},rankMode="month",topIds=[];
+const MAP_STYLE="https://tiles.openfreemap.org/styles/liberty";
+const hasMap=()=>!!window.maplibregl;
+function monthStart(){const d=new Date();return new Date(d.getFullYear(),d.getMonth(),1).getTime()}
+async function loadRuns(postsList){
+  const since=new Date(Math.min(monthStart(),Date.now()-7*DAY)).toISOString();
+  const rids=[...new Set(postsList.map(p=>p.run_id).filter(Boolean))];
+  const [rk,rr]=await Promise.all([
+    q(sb.from("runs").select("id,author,km,secs,created_at").gte("created_at",since).limit(20000)),
+    rids.length?q(sb.from("runs").select("*").in("id",rids)):[]]);
+  rankRuns=rk;runsById={};rr.forEach(r=>runsById[r.id]=r);computeRanking();
+}
+function rankList(mode){
+  const start=mode==="week"?Date.now()-7*DAY:monthStart();const m={};
+  rankRuns.filter(r=>T(r.created_at)>=start&&profiles[r.author]).forEach(r=>{const x=m[r.author]=m[r.author]||{id:r.author,km:0,secs:0,runs:0};x.km+=Number(r.km);x.secs+=r.secs;x.runs++});
+  return Object.values(m).sort((a,b)=>b.km-a.km);
+}
+function computeRanking(){topIds=rankList("month").filter(x=>x.km>=5).slice(0,3).map(x=>x.id)}
+const isTop=id=>topIds.includes(id);
+const topPos=id=>topIds.indexOf(id)+1;
+const MEDAL=["🥇","🥈","🥉"];
+function rankingHtml(){
+  const L=rankList(rankMode),mes=MESES_L[new Date().getMonth()].toLowerCase();
+  let h=`<div class="rank"><div class="rank-h"><b>Ranking ${rankMode==="week"?"da semana":"de "+esc(mes)}</b><div class="seg sm" role="group" aria-label="Período"><button data-rank="week" aria-pressed="${rankMode==="week"}">Semana</button><button data-rank="month" aria-pressed="${rankMode==="month"}">Mês</button></div></div>`;
+  if(!L.length)return h+`<div class="empty" style="margin:8px 0 0">Ninguém registrou corrida neste período. Toque em <b>Treinar</b> e seja o primeiro!</div></div>`;
+  const pod=L.slice(0,3);
+  h+=`<div class="podium">${[1,0,2].filter(i=>pod[i]).map(i=>{const x=pod[i];return `<button class="pod p${i+1}" data-person="${esc(x.id)}">${avHtml(x.id,"noring")}<span class="md">${MEDAL[i]}</span><span class="pn">${esc(nick(x.id))}</span><b>${kmTxt(x.km)} km</b><span class="bar"></span></button>`}).join("")}</div>`;
+  h+=L.slice(3,10).map((x,i)=>`<button class="rk" data-person="${esc(x.id)}"><span class="pos">${i+4}</span>${avHtml(x.id,"noring")}<span class="pn">${nm(x.id)}</span><b>${kmTxt(x.km)} km</b></button>`).join("");
+  const mine=uid?L.findIndex(x=>x.id===uid):-1;
+  if(mine>=10)h+=`<div class="note">Você está em ${mine+1}º lugar com ${kmTxt(L[mine].km)} km.</div>`;
+  return h+`<p class="note">Os 3 que mais correrem no mês (mínimo de 5 km) ganham o selo verificado e aparecem em destaque no app. Só contam corridas registradas pelo botão Treinar.</p></div>`;
+}
+function topStripHtml(){
+  const L=rankList("month").filter(x=>x.km>=5).slice(0,3);if(!L.length)return"";
+  return `<div class="topstrip"><div class="ts-h"><b>Destaques de ${esc(MESES_L[new Date().getMonth()].toLowerCase())}</b><button data-goto="people">Ver ranking</button></div><div class="ts-row">${L.map((x,i)=>`<button class="ts" data-person="${esc(x.id)}">${avHtml(x.id)}<span class="md">${MEDAL[i]}</span><span class="pn">${esc(nick(x.id))}</span><b>${kmTxt(x.km)} km</b></button>`).join("")}</div></div>`;
+}
+
+/* ---------- desenho do percurso (miniatura) ---------- */
+function routeSvg(route,cls=""){
+  if(!route||route.length<2)return"";
+  const lat0=route[0][0]*Math.PI/180,k=Math.cos(lat0);
+  const xs=route.map(p=>p[1]*k),ys=route.map(p=>-p[0]);
+  const minx=Math.min(...xs),maxx=Math.max(...xs),miny=Math.min(...ys),maxy=Math.max(...ys);
+  const W=400,H=190,pad=18,s=Math.min((W-2*pad)/((maxx-minx)||1e-9),(H-2*pad)/((maxy-miny)||1e-9));
+  const ox=(W-(maxx-minx)*s)/2,oy=(H-(maxy-miny)*s)/2;
+  const P=route.map((p,i)=>[(xs[i]-minx)*s+ox,(ys[i]-miny)*s+oy]);
+  const d="M"+P.map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join("L");
+  const a=P[0],b=P[P.length-1];
+  return `<svg class="rsvg ${cls}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Mapa do percurso"><defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.05)"/></pattern></defs><rect width="${W}" height="${H}" fill="#0c0c0c"/><rect width="${W}" height="${H}" fill="url(#g)"/><path d="${d}" fill="none" stroke="#39ff14" stroke-opacity=".35" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/><path d="${d}" fill="none" stroke="#39ff14" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${a[0]}" cy="${a[1]}" r="6" fill="#fff"/><circle cx="${b[0]}" cy="${b[1]}" r="7" fill="#39ff14" stroke="#000" stroke-width="2"/></svg>`;
+}
+function runBlockHtml(r){
+  if(!r)return"";
+  return `<div class="runbox">${routeSvg(r.route)}<div class="runmeta">${r.max_kmh?`<span>Vel. máx. <b>${Number(r.max_kmh).toFixed(1)} km/h</b></span>`:""}${r.avg_hr?`<span>❤ <b>${r.avg_hr} bpm</b> média</span>`:""}</div><button class="btn sm" data-replay="${esc(r.id)}">Ver percurso em 3D</button></div>`;
+}
+
+/* ---------- utilitários de GPS ---------- */
+function hav(a,b){const R=6371000,t=Math.PI/180,dl=(b[0]-a[0])*t,dn=(b[1]-a[1])*t;const x=Math.sin(dl/2)**2+Math.cos(a[0]*t)*Math.cos(b[0]*t)*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
+function bearing(a,b){const t=Math.PI/180;const y=Math.sin((b[1]-a[1])*t)*Math.cos(b[0]*t),x=Math.cos(a[0]*t)*Math.sin(b[0]*t)-Math.sin(a[0]*t)*Math.cos(b[0]*t)*Math.cos((b[1]-a[1])*t);return(Math.atan2(y,x)/t+360)%360}
+const fmtClock=s=>{s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return(h?h+":"+String(m).padStart(2,"0"):m)+":"+String(x).padStart(2,"0")};
+const geo=r=>({type:"Feature",geometry:{type:"LineString",coordinates:r.map(p=>[p[1],p[0]])}});
+
+/* ---------- treino ao vivo ---------- */
+const R={state:"idle",pts:[],dist:0,acc:0,lastResume:0,watch:null,wake:null,splits:[],maxKmh:0,hr:[],curHr:0,timer:null,skip:false,startAt:0,lastFix:null};
+const elapsed=()=>R.acc+(R.state==="running"?(Date.now()-R.lastResume)/1000:0);
+let liveMap=null,liveMarker=null,mapReady=false;
+function ensureLiveMap(center){
+  if(!hasMap()){$("#runMapWrap").hidden=true;return}
+  if(liveMap){if(center&&R.state==="idle")liveMap.jumpTo({center:[center[1],center[0]],zoom:16});return}
+  liveMap=new maplibregl.Map({container:"runMap",style:MAP_STYLE,center:center?[center[1],center[0]]:[-38.6255,-3.8766],zoom:center?16:13,attributionControl:{compact:true}});
+  liveMap.on("load",()=>{mapReady=true;
+    liveMap.addSource("live",{type:"geojson",data:geo([])});
+    liveMap.addLayer({id:"live-glow",type:"line",source:"live",paint:{"line-color":"#39ff14","line-width":12,"line-opacity":.3,"line-blur":4},layout:{"line-cap":"round","line-join":"round"}});
+    liveMap.addLayer({id:"live-line",type:"line",source:"live",paint:{"line-color":"#39ff14","line-width":5},layout:{"line-cap":"round","line-join":"round"}});
+    paintLiveRoute();
+  });
+  const el=document.createElement("div");el.className="me-dot";liveMarker=new maplibregl.Marker({element:el});
+}
+function paintLiveRoute(fit){
+  if(!liveMap||!mapReady)return;
+  liveMap.getSource("live").setData(geo(R.pts));
+  const last=R.pts[R.pts.length-1]||R.lastFix;
+  if(last){liveMarker.setLngLat([last[1],last[0]]).addTo(liveMap);if(R.state==="running")liveMap.easeTo({center:[last[1],last[0]],duration:600})}
+  if(fit&&R.pts.length>1){const b=new maplibregl.LngLatBounds();R.pts.forEach(p=>b.extend([p[1],p[0]]));liveMap.fitBounds(b,{padding:40,duration:0})}
+}
+function curKmh(){
+  const now=Date.now(),win=R.pts.filter(p=>now-p[2]<=15000);if(win.length<2)return 0;
+  let d=0;for(let i=1;i<win.length;i++)d+=hav(win[i-1],win[i]);const dt=(win[win.length-1][2]-win[0][2])/1000;return dt>0?d/dt*3.6:0;
+}
+function onPos(pos){
+  const c=pos.coords,p=[c.latitude,c.longitude,Date.now()];R.lastFix=p;
+  if(R.state!=="running"){if(R.state==="idle"){$("#gpsState").textContent=c.accuracy<=30?"GPS pronto ✓":"Procurando sinal do GPS… (precisão "+Math.round(c.accuracy)+" m)";$("#gpsState").classList.toggle("ok",c.accuracy<=30);ensureLiveMap(p);paintLiveRoute()}return}
+  if(c.accuracy>35)return;
+  const last=R.pts[R.pts.length-1];
+  if(last){const d=hav(last,p),dt=(p[2]-last[2])/1000;
+    if(d<4)return;
+    if(R.skip){R.skip=false}
+    else{if(dt>0&&d/dt>12)return;R.dist+=d;
+      while(R.dist>=(R.splits.length+1)*1000)R.splits.push(Math.round(elapsed()))}
+  }
+  R.pts.push(p);paintLiveRoute();paintRunStats();
+}
+function onPosErr(e){const m={1:"Permita o acesso à localização para registrar a corrida.",2:"Não foi possível achar sua localização. Vá para um lugar aberto.",3:"O GPS demorou a responder. Tentando de novo…"}[e.code]||"Erro no GPS";$("#gpsState").textContent=m;$("#gpsState").classList.remove("ok");if(e.code===1)toast(m)}
+function startWatch(){if(R.watch!=null||!navigator.geolocation)return;R.watch=navigator.geolocation.watchPosition(onPos,onPosErr,{enableHighAccuracy:true,maximumAge:0,timeout:20000})}
+function stopWatch(){if(R.watch!=null){navigator.geolocation.clearWatch(R.watch);R.watch=null}}
+async function wakeOn(){try{if(navigator.wakeLock)R.wake=await navigator.wakeLock.request("screen")}catch(e){}}
+function wakeOff(){try{R.wake&&R.wake.release()}catch(e){}R.wake=null}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&R.state==="running")wakeOn()});
+function paintRunStats(){
+  const s=elapsed(),km=R.dist/1000,pace=km>0.05?s/km:0,ck=curKmh();
+  $("#rTime").textContent=fmtClock(s);$("#rKm").textContent=km.toFixed(2).replace(".",",");
+  $("#rPace").textContent=pace?fmtPace(pace,1):"–";$("#rCur").textContent=ck?ck.toFixed(1).replace(".",","):"0,0";
+  $("#rHr").textContent=R.curHr?R.curHr:"–";
+}
+function setRunUI(){
+  const st=R.state;
+  $("#runIdle").hidden=st!=="idle";$("#runLive").hidden=!(st==="running"||st==="paused");$("#runDone").hidden=st!=="done";
+  $("#runPause").textContent=st==="paused"?"Retomar":"Pausar";$("#runLive").classList.toggle("paused",st==="paused");
+  document.body.classList.toggle("running",st==="running"||st==="paused");
+  const slot=(st==="running"||st==="paused")?$("#runMapLiveSlot"):$("#runMapIdleSlot");
+  if($("#runMapWrap").parentNode!==slot){slot.appendChild($("#runMapWrap"));if(liveMap)setTimeout(()=>liveMap.resize(),60)}
+}
+function renderRun(){
+  if(R.state==="idle"){startWatch();ensureLiveMap(R.lastFix);if(liveMap)setTimeout(()=>liveMap.resize(),50)}
+  $("#hrBtn").hidden=!navigator.bluetooth;setRunUI();paintRunStats();
+}
+$("#runStart").onclick=async()=>{
+  if(needLogin("Entre para registrar suas corridas."))return;
+  if(!navigator.geolocation){toast("Este aparelho não tem GPS disponível no navegador");return}
+  Object.assign(R,{state:"running",pts:[],dist:0,acc:0,lastResume:Date.now(),splits:[],maxKmh:0,hr:[],skip:false,startAt:Date.now()});
+  startWatch();await wakeOn();setRunUI();ensureLiveMap(R.lastFix);if(liveMap)setTimeout(()=>liveMap.resize(),50);
+  clearInterval(R.timer);R.timer=setInterval(()=>{if(R.state==="running"){const ck=curKmh();if(ck>R.maxKmh&&ck<45)R.maxKmh=ck}paintRunStats();if(R.curHr&&R.state==="running")R.hr.push([Math.round(elapsed()),R.curHr])},1000);
+  if(navigator.vibrate)navigator.vibrate(200);toast("Bora! Corrida iniciada");
+};
+$("#runPause").onclick=()=>{
+  if(R.state==="running"){R.acc+=(Date.now()-R.lastResume)/1000;R.state="paused";toast("Corrida pausada")}
+  else if(R.state==="paused"){R.lastResume=Date.now();R.state="running";R.skip=true;toast("Corrida retomada")}
+  setRunUI();paintRunStats();
+};
+$("#runStop").onclick=()=>{
+  if(!confirm("Finalizar a corrida?"))return;
+  if(R.state==="running")R.acc+=(Date.now()-R.lastResume)/1000;
+  clearInterval(R.timer);wakeOff();
+  if(R.dist<100){R.state="idle";setRunUI();toast("Corrida muito curta para salvar (menos de 100 m)");return}
+  R.state="done";setRunUI();showSummary();
+};
+function hrChart(){
+  if(R.hr.length<5)return"";const W=400,H=110,max=Math.max(...R.hr.map(x=>x[1])),min=Math.min(...R.hr.map(x=>x[1]));const t1=R.hr[R.hr.length-1][0]||1;
+  const d="M"+R.hr.map(([t,b])=>(t/t1*W).toFixed(1)+" "+(H-8-(b-min)/((max-min)||1)*(H-24)).toFixed(1)).join("L");
+  return `<div class="section-t">Batimentos</div><svg class="rsvg" viewBox="0 0 ${W} ${H}"><rect width="${W}" height="${H}" fill="#0c0c0c"/><path d="${d}" fill="none" stroke="#ff3b5c" stroke-width="2.5"/><text x="8" y="16" fill="#9a9f99" font-size="12">máx ${max} bpm</text><text x="8" y="${H-4}" fill="#9a9f99" font-size="12">mín ${min} bpm</text></svg>`;
+}
+function showSummary(){
+  const s=elapsed(),km=R.dist/1000,hrs=R.hr.map(x=>x[1]);
+  const avgHr=hrs.length?Math.round(hrs.reduce((a,b)=>a+b,0)/hrs.length):0,maxHr=hrs.length?Math.max(...hrs):0;
+  R.sum={km,secs:Math.round(s),avgHr,maxHr};
+  $("#sumStats").innerHTML=`<div><span>Distância</span><b>${kmTxt(km)} km</b></div><div><span>Tempo</span><b>${fmtClock(s)}</b></div><div><span>Pace médio</span><b>${fmtPace(s,km)}</b></div><div><span>Vel. máxima</span><b>${R.maxKmh.toFixed(1).replace(".",",")}<small> km/h</small></b></div>`;
+  let sp="";let prev=0;R.splits.forEach((t,i)=>{sp+=`<div class="split"><span>Km ${i+1}</span><b>${fmtPace(t-prev,1)} /km</b></div>`;prev=t});
+  $("#sumSplits").innerHTML=sp?`<div class="section-t">Parciais por quilômetro</div>${sp}`:"";
+  $("#sumHr").innerHTML=hrChart();
+  $("#hrManual").hidden=!!avgHr;$("#sAvgHr").value="";$("#sMaxHr").value="";
+  $("#sumRoute").innerHTML=routeSvg(R.pts);
+  $("#sText").value="";$("#sPublish").checked=true;
+}
+$("#sumReplay").onclick=()=>openReplay(R.pts.map(p=>[p[0],p[1],Math.round((p[2]-R.pts[0][2])/1000)]),{km:R.sum.km,secs:R.sum.secs,who:uid});
+$("#sumDiscard").onclick=()=>{if(!confirm("Descartar esta corrida? Ela não será salva."))return;R.state="idle";setRunUI();renderRun()};
+function simplify(pts,max=800){const step=Math.max(1,Math.ceil(pts.length/max));const t0=pts[0][2];const out=pts.filter((_,i)=>i%step===0||i===pts.length-1).map(p=>[+p[0].toFixed(5),+p[1].toFixed(5),Math.round((p[2]-t0)/1000)]);return out}
+$("#sumSave").onclick=async()=>{
+  const S=R.sum;const avg=S.avgHr||parseInt($("#sAvgHr").value)||null,mx=S.maxHr||parseInt($("#sMaxHr").value)||null;
+  const row={author:uid,km:Math.round(S.km*1000)/1000,secs:Math.max(S.secs,Math.ceil(S.km*150)),max_kmh:Math.round(R.maxKmh*10)/10,avg_hr:avg,max_hr:mx,route:simplify(R.pts),splits:R.splits,hr:R.hr.filter((_,i)=>i%5===0),city:myCity()};
+  $("#sumSave").disabled=true;
+  const{data,error}=await sb.from("runs").insert(row).select().single();
+  if(error){$("#sumSave").disabled=false;toast(/runs|relation|schema/i.test(error.message)?"Falta ativar os treinos no banco: rode o arquivo treinos.sql no Supabase":"Não deu para salvar: "+error.message);return}
+  if($("#sPublish").checked){
+    const{error:e2}=await sb.from("posts").insert({author:uid,text:$("#sText").value.trim().slice(0,500),km:Math.round(S.km*100)/100,secs:row.secs,city:myCity(),run_id:data.id});
+    if(e2)toast("Treino salvo, mas não deu para publicar no feed");
+  }
+  $("#sumSave").disabled=false;R.state="idle";setRunUI();toast("Treino salvo! 💪");await loadAll();show("feed");
+};
+$("#hrBtn").onclick=async()=>{
+  try{
+    const dev=await navigator.bluetooth.requestDevice({filters:[{services:["heart_rate"]}]});
+    const g=await dev.gatt.connect(),sv=await g.getPrimaryService("heart_rate"),ch=await sv.getCharacteristic("heart_rate_measurement");
+    await ch.startNotifications();
+    ch.addEventListener("characteristicvaluechanged",e=>{const v=e.target.value,f=v.getUint8(0);R.curHr=f&1?v.getUint16(1,true):v.getUint8(1);paintRunStats()});
+    dev.addEventListener("gattserverdisconnected",()=>{R.curHr=0;toast("Monitor cardíaco desconectado")});
+    $("#hrBtn").textContent="❤ Monitor conectado";toast("Monitor cardíaco conectado");
+  }catch(e){if(e&&e.name!=="NotFoundError")toast("Não deu para conectar o monitor")}
+};
+
+/* ---------- replay 3D ---------- */
+let rp={map:null,raf:0,rec:null};
+function openReplay(route,info){
+  if(!route||route.length<2){toast("Esse treino não tem percurso registrado");return}
+  if(!hasMap()){toast("O mapa 3D precisa de internet para carregar");return}
+  $("#replayDlg").showModal();
+  $("#rpWho").innerHTML=info.who?`${avHtml(info.who,"noring")}<span>${nm(info.who)}</span>`:"";
+  $("#rpRec").hidden=!(window.MediaRecorder&&HTMLCanvasElement.prototype.captureStream);
+  if(rp.map){rp.map.remove();rp.map=null}
+  const pts=route.map(p=>[p[0],p[1]]);const cum=[0];for(let i=1;i<pts.length;i++)cum.push(cum[i-1]+hav(pts[i-1],pts[i]));
+  rp.data={pts,cum,total:cum[cum.length-1],info};
+  rp.map=new maplibregl.Map({container:"rpMap",style:MAP_STYLE,center:[pts[0][1],pts[0][0]],zoom:15,pitch:60,bearing:0,attributionControl:{compact:true},canvasContextAttributes:{preserveDrawingBuffer:true},preserveDrawingBuffer:true});
+  rp.map.on("load",()=>{
+    rp.map.addSource("full",{type:"geojson",data:geo(pts)});
+    rp.map.addLayer({id:"full",type:"line",source:"full",paint:{"line-color":"#ffffff","line-width":4,"line-opacity":.45},layout:{"line-cap":"round","line-join":"round"}});
+    rp.map.addSource("prog",{type:"geojson",data:geo([pts[0]])});
+    rp.map.addLayer({id:"prog-glow",type:"line",source:"prog",paint:{"line-color":"#39ff14","line-width":16,"line-opacity":.35,"line-blur":6},layout:{"line-cap":"round","line-join":"round"}});
+    rp.map.addLayer({id:"prog",type:"line",source:"prog",paint:{"line-color":"#39ff14","line-width":6},layout:{"line-cap":"round","line-join":"round"}});
+    rp.map.addSource("dot",{type:"geojson",data:{type:"Feature",geometry:{type:"Point",coordinates:[pts[0][1],pts[0][0]]}}});
+    rp.map.addLayer({id:"dot",type:"circle",source:"dot",paint:{"circle-radius":9,"circle-color":"#39ff14","circle-stroke-color":"#000","circle-stroke-width":3}});
+    playReplay();
+  });
+}
+function posAt(dist){const{pts,cum}=rp.data;let i=1;while(i<cum.length-1&&cum[i]<dist)i++;const a=pts[i-1],b=pts[i],seg=(cum[i]-cum[i-1])||1,f=Math.min(1,Math.max(0,(dist-cum[i-1])/seg));return{p:[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f],i}}
+function playReplay(onEnd){
+  cancelAnimationFrame(rp.raf);const{pts,total,info}=rp.data;const D=Math.min(26000,Math.max(12000,total*3));
+  let brg=bearing(pts[0],pts[Math.min(pts.length-1,5)]);
+  rp.map.jumpTo({center:[pts[0][1],pts[0][0]],zoom:16.4,pitch:62,bearing:brg});
+  $("#rpHud").hidden=false;const t0=performance.now()+900;
+  const step=now=>{
+    const f=Math.min(1,Math.max(0,(now-t0)/D)),ease=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2,d=ease*total;
+    const{p,i}=posAt(d),ahead=posAt(Math.min(total,d+Math.max(60,total*.04))).p;
+    const nb=bearing(p,ahead);let diff=((nb-brg+540)%360)-180;brg=(brg+diff*.06+360)%360;
+    rp.map.getSource("prog").setData(geo([...pts.slice(0,i),p]));
+    rp.map.getSource("dot").setData({type:"Feature",geometry:{type:"Point",coordinates:[p[1],p[0]]}});
+    rp.map.jumpTo({center:[p[1],p[0]],bearing:brg,pitch:62,zoom:16.4});
+    $("#rpKm").textContent=kmTxt(info.km*ease)+" km";$("#rpTime").textContent=fmtClock(info.secs*ease);
+    if(f<1)rp.raf=requestAnimationFrame(step);
+    else{const b=new maplibregl.LngLatBounds();pts.forEach(q=>b.extend([q[1],q[0]]));rp.map.fitBounds(b,{padding:60,pitch:45,bearing:brg,duration:2500});$("#rpKm").textContent=kmTxt(info.km)+" km";$("#rpTime").textContent=fmtClock(info.secs);if(onEnd)setTimeout(onEnd,2800)}
+  };
+  rp.raf=requestAnimationFrame(step);
+}
+$("#rpAgain").onclick=()=>{if(rp.map&&rp.data)playReplay()};
+$("#rpClose").onclick=()=>$("#replayDlg").close();
+$("#replayDlg").addEventListener("close",()=>{cancelAnimationFrame(rp.raf);try{rp.rec&&rp.rec.state!=="inactive"&&rp.rec.stop()}catch(e){}if(rp.map){rp.map.remove();rp.map=null}});
+$("#rpRec").onclick=()=>{
+  if(!rp.map)return;const canvas=rp.map.getCanvas();let stream;try{stream=canvas.captureStream(30)}catch(e){toast("Este aparelho não grava vídeo do mapa");return}
+  const type=["video/mp4","video/webm;codecs=vp9","video/webm"].find(t=>MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(t))||"";
+  const chunks=[];rp.rec=new MediaRecorder(stream,type?{mimeType:type}:{});rp.rec.ondataavailable=e=>e.data.size&&chunks.push(e.data);
+  rp.rec.onstop=async()=>{$("#rpRec").textContent="Gravar vídeo";$("#rpRec").disabled=false;
+    const mt=rp.rec.mimeType||type||"video/webm",ext=mt.includes("mp4")?"mp4":"webm",blob=new Blob(chunks,{type:mt}),file=new File([blob],"meu-pace-corrida."+ext,{type:mt});
+    try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:"Minha corrida no MEU PACE"});return}}catch(e){if(e&&e.name==="AbortError")return}
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=file.name;document.body.appendChild(a);a.click();a.remove();toast("Vídeo salvo")};
+  $("#rpRec").textContent="Gravando…";$("#rpRec").disabled=true;rp.rec.start();
+  playReplay(()=>{try{rp.rec.stop()}catch(e){}});
+};
+
 /* ---------- render geral ---------- */
 function render(){
   $("#meAv").outerHTML=me()&&me().photo?`<div class="av" id="meAv"><img src="${esc(me().photo)}" alt=""></div>`:`<div class="av" id="meAv">${esc(me()?me().nick[0].toUpperCase():"?")}</div>`;
   $("#msgBtn").hidden=!me();updateBadge();updateMsgBadge();
-  if(current==="feed")renderFeed();
+  if(current==="feed"){renderFeed();$("#topStrip").innerHTML=topStripHtml()}
+  if(current==="run")renderRun();
   if(current==="races")renderRaces();
   if(current==="people")renderPeople();
   if(current==="alerts")renderAlerts();
